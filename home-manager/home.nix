@@ -3,12 +3,7 @@
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    ./programs/kitty/kitty.nix
-    ./programs/lf/lf.nix
-    ./programs/nvim/nvim.nix
-    ./programs/vscode/vscode.nix
-    ./programs/rofi/rofi.nix
-    ./programs/qutebrowser/qutebrowser.nix
+    ./programs/programs.nix
   ];
 
   nixpkgs = {
@@ -52,6 +47,11 @@
     xclip
     xdragon
     pistol
+    ripgrep
+    fd
+    biber
+    xdotool
+    pstree
   ];
   nixpkgs.config.permittedInsecurePackages = [
     "electron-24.8.6" # Used for obsidian
