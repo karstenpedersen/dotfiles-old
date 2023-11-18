@@ -3,7 +3,7 @@
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    ./programs/programs.nix
+    ./programs
   ];
 
   nixpkgs = {

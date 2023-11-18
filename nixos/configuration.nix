@@ -75,12 +75,11 @@
   # Packages
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    xorg.libX11
-    xorg.libXext
-    xorg.libXrandr
-    xorg.libXft
-    xorg.libX11
-    dconf
+    # xorg.libX11
+    # xorg.libXext
+    # xorg.libXrandr
+    # xorg.libXft
+    # dconf
     neovim
   ];
 
