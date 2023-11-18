@@ -52,7 +52,7 @@
       }
       {
         plugin = gitsigns-nvim;
-        config = toLua "require(\"gitsigns\").setup()";
+        config = toLuaFile ./plugins/gitsigns.lua;
       }
       {
         plugin = (nvim-treesitter.withPlugins (p: [
