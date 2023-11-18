@@ -51,6 +51,10 @@
         config = toLuaFile ./plugins/vimtex.lua;
       }
       {
+        plugin = gitsigns-nvim;
+        config = toLua "require(\"gitsigns\").setup()";
+      }
+      {
         plugin = (nvim-treesitter.withPlugins (p: [
           p.tree-sitter-nix
           p.tree-sitter-vim
@@ -86,7 +90,6 @@
       luasnip
       friendly-snippets
       vim-fugitive
-      gitsigns-nvim
     ];
   };
 }
