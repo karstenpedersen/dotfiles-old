@@ -6,14 +6,8 @@
     ./programs
   ];
 
-  nixpkgs = {
-    overlays = [];
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = _: true; # bug: https://github.com/nix-community/home-manager/issues/2942
-    };
-  };
-
+  # Home
+  programs.home-manager.enable = true;
   home.username = "karsten";
   home.homeDirectory = "/home/karsten";
   home.stateVersion = "23.05";
@@ -21,64 +15,35 @@
   # Colorscheme
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
-  # environment.systemPackages = with pkgs; [
-  home.packages = with pkgs; [
-    pamixer
-    btop
-    git
-    devbox
-    autojump
-    lf
-    gcc
-    pass
-    gnupg
-    kitty
-    zathura
-    tectonic
-    zotero
-    obsidian
-    firefox
-    discord
-    spotify
-    nextcloud-client
-    vscodium
-    rofi
-    xcolor
-    xclip
-    xdragon
-    pistol
-    ripgrep
-    fd
-    biber
-    xdotool
-    pstree
-  ];
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-24.8.6" # Used for obsidian
-  ];
-  
-  # Dotfiles
-  home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-  };
+  # gtk = {
+  #   enable = true;
+  #   theme.package = pkgs.adw-gtk3;
+  #   theme.name = "adw-gtk3";
+  #   cursorTheme.package = pkgs.bibata-cursors;
+  #   cursorTheme.name = "Bibata-Modern-Ice";
+  #   # iconTheme.package = gruvboxPlus;
+  #   # iconTheme.name = "GruvboxPlus";
+  # };
+  # qt = {
+  #   enable = true;
+  #   platformTheme = "gtk";
+  #   style.package = pkgs.adwaita-qt;
+  #   style.name = "adwaita-dark";
+  # };
 
   # Environment
   home.sessionVariables = {
     EDITOR = "nvim";
   };
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-
   # Git
   programs.git = {
     enable = true;
     userName  = "Karsten Pedersen";
     userEmail = "karstenfp.all@gmail.com";
-
+    extraConfig = {
+      init = { defaultBranch = "main"; };
+    };
     aliases = {
       pu = "push";
       cm = "commit";
@@ -86,30 +51,6 @@
       sw = "switch";
       s = "status";
     };
-  };
-
-  # Firefox
-  # nix flake show "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons" 
-  programs.firefox = {
-    enable = true;
-    profiles.karsten = {
-      search.engines = {};
-      extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
-        duckduckgo-privacy-essentials
-        firefox-color                
-        markdownload                 
-        react-devtools               
-        vimium                       
-      ];
-    };
-  };
-
-  # Gtk
-  gtk = {
-    enable = true;
-    theme.name = "adw-gtk3";
-    cursorTheme.name = "Bibata-Modern-Ice";
-    iconTheme.name = "GruvboxPlus";
   };
 
   # Mime types

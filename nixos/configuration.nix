@@ -31,9 +31,9 @@
   # XServer 
   services.xserver = {
     enable = true;
-    layout = "us";
+    layout = "us,dk";
     xkbVariant = "";
-    xkbOptions = "caps:escape";
+    xkbOptions = "grp:alt_shift_toggle,caps:escape";
     libinput.touchpad.naturalScrolling = true;
     displayManager = {
       sddm.enable = true;
@@ -75,11 +75,7 @@
   # Packages
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    # xorg.libX11
-    # xorg.libXext
-    # xorg.libXrandr
-    # xorg.libXft
-    # dconf
+    dconf
     neovim
   ];
 

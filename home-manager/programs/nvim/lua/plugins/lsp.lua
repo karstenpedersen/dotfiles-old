@@ -1,9 +1,5 @@
 local servers = {
---	['tailwindcss'] = {},
 	['svelte'] = {},
---	['astro'] = {},
---	['cssls'] = {},
---	['html'] = {},
 	['lua_ls'] = {
 		settings = {
 			Lua = {
@@ -20,10 +16,10 @@ local servers = {
 		}
 	},
 	['rnix'] = {},
-	--['tsserver'] = {},
-    --['rust-analyzer'] = {},
     ['marksman'] = {},
-    --['json'] = {}
+    ['hls'] = {},
+    ['pyright'] = {},
+    ['ccls'] = {}
 }
 local servers_key = vim.tbl_keys(servers)
 
