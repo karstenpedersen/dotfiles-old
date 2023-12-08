@@ -71,11 +71,12 @@
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal.config.common.default = "*";
 
   # Fonts
   fonts = {
-    enableDefaultFonts = true;
-    fonts = with pkgs; [
+    enableDefaultPackages = true;
+    packages = with pkgs; [
       noto-fonts
       noto-fonts-emoji
       noto-fonts-extra
@@ -116,7 +117,7 @@
   users.defaultUserShell = pkgs.zsh;
 
   # System
-  system.stateVersion = "23.05";
+  system.stateVersion = "unstable";
 
   # Games
   programs.steam = {
@@ -124,8 +125,19 @@
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
-  hardware.opengl.driSupport32Bit = true;
 
+  # Nvidia
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+    NIXOS_OZONE_WL = "1";
+  };
+  hardware = {
+    opengl.enable = true;
+    opengl.driSupport32Bit = true;
+    nvidia.modesetting.enable = true;
+  };
+
+  # Eduroam
   networking.wireless.networks.eduroam = {
     auth = ''
       key_mgmt=WPA-EAP

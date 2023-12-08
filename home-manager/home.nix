@@ -11,7 +11,7 @@
   programs.home-manager.enable = true;
   home.username = "karsten";
   home.homeDirectory = "/home/karsten";
-  home.stateVersion = "23.05";
+  home.stateVersion = "23.11";
  
   # Colorscheme
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
