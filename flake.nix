@@ -12,6 +12,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-colors.url = "github:misterio77/nix-colors";
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs: let
@@ -21,7 +22,10 @@
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
-        modules = [./nixos/configuration.nix];
+        modules = [
+          ./nixos/configuration.nix
+          inputs.hyprland.nixosModules.default
+        ];
       };
     };
     

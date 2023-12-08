@@ -11,6 +11,7 @@
     ./rofi
     ./qutebrowser
     ./firefox
+    ./waybar
   ];
   
   nixpkgs = {
@@ -23,14 +24,7 @@
 
   # Packages
   home.packages = with pkgs; [
-    # waybar
-    (waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-    }))
-    mako
     libnotify
-    swww
-    eww
     btop
     git
     devbox
@@ -56,6 +50,9 @@
     biber
     # xdotool
     pstree 
+    xclip
+    hyprpicker
+    wl-clipboard
   ];
   nixpkgs.config.permittedInsecurePackages = [
     "electron-24.8.6" # Used for obsidian
