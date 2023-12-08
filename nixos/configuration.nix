@@ -37,18 +37,7 @@
     libinput.touchpad.naturalScrolling = true;
     displayManager = {
       sddm.enable = true;
-      defaultSession = "none+awesome";
     };
-    windowManager.awesome = {
-      enable = true;
-      luaModules = with pkgs.luaPackages; [
-        luarocks
-        luadbi-mysql
-      ];
-    };
-    excludePackages = with pkgs; [
-      xterm
-    ];
   };
 
   # Keys
@@ -70,6 +59,7 @@
       "audio"
       "video"
     ];
+    useDefaultShell = true;
   };
 
   # Packages
@@ -78,6 +68,9 @@
     dconf
     neovim
   ];
+
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   # Fonts
   fonts = {
@@ -98,18 +91,19 @@
     };
   };
 
-  environment.sessionVariables = {
-    EDITOR = "nvim";
-  };
-
   # Audio
-  hardware.pulseaudio.enable = true;
+  sound.enable = true;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
 
   # Bluetooth
   hardware.bluetooth.enable = true;
-
-  # Screen brightness
-  programs.light.enable = true;
 
   # Settings
   nix.settings = {
@@ -117,6 +111,27 @@
     auto-optimise-store = true;
   };
 
+  # Shell
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+
   # System
   system.stateVersion = "23.05";
+
+  # Games
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  };
+  hardware.opengl.driSupport32Bit = true;
+
+  networking.wireless.networks.eduroam = {
+    auth = ''
+      key_mgmt=WPA-EAP
+      eap=PWD
+      identity="kpede22@student.sdu.dk"
+      password="p@$$w0rd"
+    '';
+  };
 }

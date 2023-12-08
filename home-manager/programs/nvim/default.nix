@@ -19,13 +19,7 @@
     extraPackages = with pkgs; [
       lua-language-server
       rnix-lsp
-      nodePackages.svelte-language-server
-      nodePackages.typescript-language-server
-      nodePackages.vscode-json-languageserver
-      rust-analyzer
       marksman
-      # haskell-language-server
-      # nodePackages.pyright
     ];
     plugins = with pkgs.vimPlugins; [
       {

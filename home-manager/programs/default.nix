@@ -2,8 +2,10 @@
 
 {
   imports = [
-    ./kitty
     ./lf
+    ./git
+    ./zsh
+    ./kitty
     ./nvim
     ./vscode
     ./rofi
@@ -21,7 +23,14 @@
 
   # Packages
   home.packages = with pkgs; [
-    pamixer
+    # waybar
+    (waybar.overrideAttrs (oldAttrs: {
+      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+    }))
+    mako
+    libnotify
+    swww
+    eww
     btop
     git
     devbox
@@ -39,20 +48,22 @@
     spotify
     nextcloud-client
     vscodium
-    rofi
-    xcolor
-    xclip
+    rofi-wayland
     xdragon
     pistol
     ripgrep
     fd
     biber
-    xdotool
+    # xdotool
     pstree 
-    dwarf-fortress
-    maim
   ];
   nixpkgs.config.permittedInsecurePackages = [
     "electron-24.8.6" # Used for obsidian
   ];
+
+  # Mime types
+  xdg.mimeApps.defaultApplications = {
+    "text/*" = ["nvim.desktop"];
+    "application/pdf" = ["zathura.desktop"];
+  };
 }
