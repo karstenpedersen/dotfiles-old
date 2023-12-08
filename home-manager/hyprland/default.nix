@@ -7,9 +7,6 @@
     eww
     swww
     mako
-    (waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-    }))
   ];
 
   wayland.windowManager.hyprland = {
@@ -17,11 +14,14 @@
     xwayland.enable = true;
     extraConfig = ''
       # See https://wiki.hyprland.org/Configuring/Monitors/
-      monitor=,preferred,auto,auto
+      monitor=,1920x1080@144,auto,1
 
-      # Startup
+      # Fix slow startup
+      exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+      exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
+      # Autostart
       exec-once = mako
-      # exec = pkill waybar & sleep 0.5 && waybar
       exec-once = waybar
 
       # Programs
@@ -30,7 +30,7 @@
       $menu = rofi -show drun -show-icon 
 
       # Env
-      env = XCURSOR_SIZE,24
+      env = XCURSOR_SIZE,20
 
       # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
       input {
@@ -172,5 +172,19 @@
       bindm = $mod, mouse:272, movewindow
       bindm = $mod, mouse:273, resizewindow
     '';
+  };
+
+  home.sessionVariables = {
+    GBM_BACKEND= "nvidia-drm";
+    __GLX_VENDOR_LIBRARY_NAME= "nvidia";
+    LIBVA_DRIVER_NAME= "nvidia"; # hardware acceleration
+    __GL_VRR_ALLOWED="1";
+    WLR_NO_HARDWARE_CURSORS = "1";
+    WLR_RENDERER_ALLOW_SOFTWARE = "1";
+    CLUTTER_BACKEND = "wayland";
+    WLR_RENDERER = "vulkan";
+    XDG_CURRENT_DESKTOP = "Hyprland";
+    XDG_SESSION_DESKTOP = "Hyprland";
+    XDG_SESSION_TYPE = "wayland";
   };
 }
