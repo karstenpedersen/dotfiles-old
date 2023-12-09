@@ -1,7 +1,8 @@
 { pkgs, config, ... }:
 
 {
-  option.services.mako = {
+  options.services.mako = {
+    enable = true;
     textColor = "#fafafa";
     borderColor = "#fafafa";
     backgroundColor = "#000000";

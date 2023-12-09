@@ -6,6 +6,7 @@
     inputs.hyprland.homeManagerModules.default
     ./hyprland
     ./programs
+    ./services
   ];
 
   # Home

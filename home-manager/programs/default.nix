@@ -12,6 +12,7 @@
     ./qutebrowser
     ./firefox
     ./waybar
+    ./mako
   ];
   
   nixpkgs = {
