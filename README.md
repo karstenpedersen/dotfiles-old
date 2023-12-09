@@ -4,7 +4,7 @@
 
 |                          |                  NixOS 23.11               |
 |--------------------------|:------------------------------------------:|
-| **Window Manager**       | [Hyprland](https://hyprland.org)           |
+| **Tiling Compositor**    | [Hyprland](https://hyprland.org)           |
 | **Terminal**             | [Kitty](https://sw.kovidgoyal.net/kitty/)  |
 | **Display Server**       | [Wayland](https://wayland.freedesktop.org) |
 | **Application Launcher** | [Rofi](https://github.com/davatorium/rofi) |
