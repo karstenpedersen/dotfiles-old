@@ -12,4 +12,5 @@ This is build around NixOS, using home manager.
 - Kitty
 - Lf
 - Zathura
-- AwesomeWM
+- Hyprland
+- Waybar
