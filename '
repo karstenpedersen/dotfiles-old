@@ -1,0 +1,21 @@
+{ pkgs, config, ... }:
+
+{
+  programs.zathura = {
+    enable = true;
+    options = {
+      notification-error-bg = "#${config.colorScheme.colors.base08}";
+      notification-error-fg = "#${config.colorScheme.colors.base05}";
+      notification-warning-bg = "#${config.colorScheme.colors.base09}";
+      notification-warning-fg = "#${config.colorScheme.colors.base05}";
+      notification-bg = "#${config.colorScheme.colors.base00}";
+      notification-fg = "#${config.colorScheme.colors.base05}";
+      completion-bg = "#${config.colorScheme.colors.base00}";
+      completion-fg = "#${config.colorScheme.colors.base05}";
+      completion-group-bg = "#${config.colorScheme.colors.base00}";
+      completion-group-fg = "#${config.colorScheme.colors.base05}";
+      default-bg = "#${config.colorScheme.colors.base00}";
+      default-fg = "#${config.colorScheme.colors.base05}";
+    };
+  };
+}

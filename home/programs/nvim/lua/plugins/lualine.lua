@@ -4,6 +4,7 @@ require("lualine").setup {
         component_separators = '',
         disabled_filetypes = {
             "netrw"
-        }
+        },
+        theme = "base16"
     }
 }

@@ -25,8 +25,8 @@ vim.opt.wrap = false
 vim.opt.colorcolumn = '80'
 
 -- Colors
-vim.opt.termguicolors = true
-vim.api.nvim_set_option('background', 'dark')
+-- vim.opt.termguicolors = true
+-- vim.api.nvim_set_option('background', 'dark')
 
 -- Files
 vim.opt.undodir = os.getenv('HOME') .. '/.vim/undodir'

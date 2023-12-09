@@ -14,6 +14,7 @@
     ./qutebrowser
     ./firefox
     ./waybar
+    ./zathura
   ];
   
   nixpkgs = {
@@ -32,6 +33,7 @@
     devbox
     autojump
     lf
+    man-pages
     pass
     gnupg
     kitty

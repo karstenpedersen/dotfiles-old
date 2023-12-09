@@ -3,10 +3,13 @@
 {
   services.mako = {
     enable = true;
-    textColor = "#fafafa";
-    borderColor = "#fafafa";
-    backgroundColor = "#000000";
-    borderRadius = 0;
     defaultTimeout = 30000;
+    textColor = "#${config.colorScheme.colors.base05}";
+    borderColor = "#${config.colorScheme.colors.base05}";
+    backgroundColor = "#${config.colorScheme.colors.base01}";
+    width = 450;
+    height = 120;
+    borderSize = 2;
+    borderRadius = 0;
   };
 }

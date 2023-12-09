@@ -9,19 +9,85 @@
       font_family = "FiraMono";
       bold_font = "FiraMono Bold";
 
-      background = "#${config.colorScheme.colors.base00}";
+      # The basic colors
       foreground = "#${config.colorScheme.colors.base05}";
-      selection_background = "#${config.colorScheme.colors.base05}";
+      background = "#${config.colorScheme.colors.base00}";
       selection_foreground = "#${config.colorScheme.colors.base00}";
-      url_color = "#${config.colorScheme.colors.base0D}";
-      cursor = "#${config.colorScheme.colors.base0D}";
+      selection_background = "#${config.colorScheme.colors.base06}";
+
+      # Cursor colors
+      cursor = "#${config.colorScheme.colors.base06}";
       cursor_text_color = "#${config.colorScheme.colors.base00}";
-      active_border_color = "#${config.colorScheme.colors.base03}";
-      inactive_border_color = "#${config.colorScheme.colors.base01}";
+
+      # URL underline color when hovering with mouse
+      url_color = "#${config.colorScheme.colors.base06}";
+
+      # Kitty window border colors
+      active_border_color = "#${config.colorScheme.colors.base07}";
+      inactive_border_color = "#${config.colorScheme.colors.base04}";
+      bell_border_color = "#${config.colorScheme.colors.base0A}";
+
+      # Tab bar colors
       active_tab_background = "#${config.colorScheme.colors.base00}";
       active_tab_foreground = "#${config.colorScheme.colors.base05}";
       inactive_tab_background = "#${config.colorScheme.colors.base01}";
       inactive_tab_foreground = "#${config.colorScheme.colors.base04}";
+      tab_bar_background = "#${config.colorScheme.colors.base01}";
+
+      # Colors for marks (marked text in the terminal)
+      mark1_foreground = "#${config.colorScheme.colors.base00}";
+      mark1_background = "#${config.colorScheme.colors.base07}";
+      mark2_foreground = "#${config.colorScheme.colors.base00}";
+      mark2_background = "#${config.colorScheme.colors.base0E}";
+      mark3_foreground = "#${config.colorScheme.colors.base00}";
+      mark3_background = "#${config.colorScheme.colors.base0D}";
+
+      # The 16 terminal colors
+      # black
+      color0 = "#${config.colorScheme.colors.base03}";
+      color8 = "#${config.colorScheme.colors.base04}";
+
+      # red
+      color1 = "#${config.colorScheme.colors.base08}";
+      color9 = "#${config.colorScheme.colors.base08}";
+
+      # green
+      color2  = "#${config.colorScheme.colors.base0B}";
+      color10 = "#${config.colorScheme.colors.base0B}";
+
+      # yellow
+      color3 = "#${config.colorScheme.colors.base0A}";
+      color11 = "#${config.colorScheme.colors.base0A}";
+
+      # blue
+      color4 = "#${config.colorScheme.colors.base0D}";
+      color12 = "#${config.colorScheme.colors.base0D}";
+
+      # magenta
+      color5 = "#${config.colorScheme.colors.base0E}";
+      color13 = "#${config.colorScheme.colors.base0E}";
+
+      # cyan
+      color6 = "#${config.colorScheme.colors.base0C}";
+      color14 = "#${config.colorScheme.colors.base0C}";
+
+      # white
+      color7 = "#${config.colorScheme.colors.base05}";
+      color15 = "#${config.colorScheme.colors.base05}";
+
+      # background = "#${config.colorScheme.colors.base00}";
+      # foreground = "#${config.colorScheme.colors.base05}";
+      # selection_background = "#${config.colorScheme.colors.base05}";
+      # selection_foreground = "#${config.colorScheme.colors.base00}";
+      # url_color = "#${config.colorScheme.colors.base0D}";
+      # cursor = "#${config.colorScheme.colors.base0D}";
+      # cursor_text_color = "#${config.colorScheme.colors.base00}";
+      # active_border_color = "#${config.colorScheme.colors.base03}";
+      # inactive_border_color = "#${config.colorScheme.colors.base01}";
+      # active_tab_background = "#${config.colorScheme.colors.base00}";
+      # active_tab_foreground = "#${config.colorScheme.colors.base05}";
+      # inactive_tab_background = "#${config.colorScheme.colors.base01}";
+      # inactive_tab_foreground = "#${config.colorScheme.colors.base04}";
     };
     keybindings = {
       "ctrl+shift+enter" = "new_window_with_cwd";

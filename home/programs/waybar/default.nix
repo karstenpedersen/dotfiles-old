@@ -85,8 +85,8 @@
       }
 
       window#waybar {
-        background: #000000;
-        color: #fafafa;
+        background: #${config.colorScheme.colors.base01};
+        color: #${config.colorScheme.colors.base05};
       }
 
       #workspaces,
@@ -114,7 +114,7 @@
 
       #workspaces button {
         padding: 0 2px;
-        color: #757575;
+        color: #${config.colorScheme.colors.base04};
         border-radius: 0;
         border: 0;
         border-bottom: 2px solid transparent;
@@ -122,9 +122,9 @@
 
       #workspaces button.active,
       #workspaces button:hover {
-        color: #fafafa;
-        background: #000000;
-        border-color: #fafafa;
+        color: #${config.colorScheme.colors.base05};
+        background: #${config.colorScheme.colors.base01};
+        border-color: #${config.colorScheme.colors.base05};
       }
     '';
   };

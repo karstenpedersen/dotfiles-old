@@ -149,4 +149,14 @@
       password="p@$$w0rd"
     '';
   };
+
+  # Allow man pages
+  documentation = {
+    enable = true;
+    man = {
+      man-db.enable = false;
+      mandoc.enable = true;
+    };
+    dev.enable = true;
+  };
 }
