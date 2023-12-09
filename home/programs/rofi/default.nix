@@ -60,7 +60,7 @@
       };
       element = {
         text-color = mkLiteral "@foreground";
-        padding = mkLiteral "8px";
+        padding = mkLiteral "6px 8px";
         spacing = mkLiteral "8px";
         children = mkLiteral "[element-text]";
       };

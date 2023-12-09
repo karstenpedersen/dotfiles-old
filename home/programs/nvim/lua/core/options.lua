@@ -40,4 +40,4 @@ vim.opt.smartcase = true
 -- vim.o.path = vim.o.path .. '**'
 
 -- Disable mouse
-vim.opt.mouse = ''
+-- vim.opt.mouse = ''

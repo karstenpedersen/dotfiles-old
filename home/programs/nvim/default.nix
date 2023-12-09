@@ -120,4 +120,6 @@
       vim-fugitive
     ];
   };
+
+  home.file.".config/nvim/ftplugin".source = ./ftplugin;
 }

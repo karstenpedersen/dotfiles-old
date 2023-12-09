@@ -16,8 +16,8 @@
         ];
         modules-right = [
           "tray"
-          "memory"
           "hyprland/language"
+          "memory"
           "pulseaudio"
           "network"
           "battery"
