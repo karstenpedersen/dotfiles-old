@@ -30,7 +30,7 @@ chmod +x install.sh
 
 ## 
 <div id="header" align="center">
-  <a href="https://github.com/HeinzDev/">
+  <a href="https://github.com/karstenpedersen/">
     <img src="https://avatars.githubusercontent.com/u/53978294?v=4" width="100"/>
   </a>
   <a href="https://github.com/karstenpedersen/">
