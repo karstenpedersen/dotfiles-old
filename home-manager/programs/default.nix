@@ -55,6 +55,7 @@
     wl-clipboard
     pipewire
     wireplumber
+    pavucontrol
   ];
   nixpkgs.config.permittedInsecurePackages = [
     "electron-24.8.6" # Used for obsidian
