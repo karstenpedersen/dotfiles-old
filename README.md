@@ -1,16 +1,13 @@
 # Dotfiles
 
-My dotfiles.
-
 ## Tooling
 
-This is build around NixOS, using home manager.
-
-### List
-
-- Neovim
-- Kitty
-- Lf
-- Zathura
-- Hyprland
-- Waybar
+|                          |                  NixOS 23.11               |
+|--------------------------|:------------------------------------------:|
+| **Desktop Environment**  | [Hyprland](https://hyprland.org)           |
+| **Terminal**             | [Kitty](https://sw.kovidgoyal.net/kitty/)  |
+| **Display Server**       | [Wayland](https://wayland.freedesktop.org) |
+| **Application Launcher** | [Rofi](https://github.com/davatorium/rofi) |
+| **Shell**                | [Zsh](https://zsh.sourceforge.io)          |
+| **Text Editor**          | [Neovim](https://neovim.io)                |
+| **File Manager**         | [lf](https://github.com/gokcehan/lf)       |
