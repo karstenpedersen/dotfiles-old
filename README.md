@@ -27,3 +27,13 @@ chmod +x install.sh
 # Build NixOS and home-manager
 ./install.sh
 ```
+
+## 
+<div id="header" align="center">
+  <a href="https://github.com/HeinzDev/">
+    <img src="https://avatars.githubusercontent.com/u/53978294?v=4" width="100"/>
+  </a>
+  <a href="https://github.com/karstenpedersen/">
+    <h3>Karsten Pedersen</h3>  
+  </a>
+</div>
