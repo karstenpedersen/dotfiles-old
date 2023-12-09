@@ -19,6 +19,10 @@ My personal dotfiles based around NixOS with home-manager using hyprland.
 ```
 # Clone repository
 git clone git@github.com:karstenpedersen/dotfiles.git
+cd dotfiles
+
+# Make install.sh executable
+chmod +x install.sh
 
 # Build NixOS and home-manager
 ./install.sh
