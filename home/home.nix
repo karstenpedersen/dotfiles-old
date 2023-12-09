@@ -4,7 +4,6 @@
   imports = [
     inputs.nix-colors.homeManagerModules.default
     inputs.hyprland.homeManagerModules.default
-    ./hyprland
     ./programs
     ./services
   ];

@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./hypr
     ./lf
     ./git
     ./zsh
@@ -56,6 +57,9 @@
     wireplumber
     pavucontrol
     polkit-kde-agent
+    pamixer
+    light
+    playerctl
   ];
   nixpkgs.config.permittedInsecurePackages = [
     "electron-24.8.6" # Used for obsidian

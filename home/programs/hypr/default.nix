@@ -23,7 +23,10 @@
       # Autostart
       exec-once = mako
       exec-once = waybar
-      # exec-once = espanso start
+      exec-once = espanso start
+
+      source = ./colors
+      # exec-once = swww init & swww img ./assets/wallpaper.png
 
       # Programs
       $terminal = kitty
@@ -146,6 +149,17 @@
       bind = $mod, tab, focuscurrentorlast
       bind = $mod, f, fullscreen
 
+      bind = ,XF86AudioMicMute, exec, pamixer --default-source -t
+      bind = ,XF86MonBrightnessDown,exec, light -U 20
+      bind = ,XF86MonBrightnessUp, exec, light -A 20
+      bind = ,XF86AudioMute, exec, pamixer -t
+      bind = ,XF86AudioLowerVolume, exec, pamixer -d 5
+      bind = ,XF86AudioRaiseVolume, exec, pamixer -i 5
+      bind = ,XF86AudioPlay, exec, playerctl play-pause
+      bind = ,XF86AudioPause, exec, playerctl play-pause
+      bind = ,XF86AudioNext, exec, playerctl next
+      bind = ,XF86AudioPrev, exec, playerctl previous
+
       # Move focus with h,j,k,l
       bind = $mod, h, movefocus, l
       bind = $mod, l, movefocus, r
@@ -176,6 +190,27 @@
       bindm = $mod, mouse:273, resizewindow
     '';
   };
+
+  home.file.".config/hypr/colors".text = ''
+    $background = rgba(1d192bee)
+    $foreground = rgba(c3dde7ee)
+    $color0 = rgba(1d192bee)
+    $color1 = rgba(465EA7ee)
+    $color2 = rgba(5A89B6ee)
+    $color3 = rgba(6296CAee)
+    $color4 = rgba(73B3D4ee)
+    $color5 = rgba(7BC7DDee)
+    $color6 = rgba(9CB4E3ee)
+    $color7 = rgba(c3dde7ee)
+    $color8 = rgba(889aa1ee)
+    $color9 = rgba(465EA7ee)
+    $color10 = rgba(5A89B6ee)
+    $color11 = rgba(6296CAee)
+    $color12 = rgba(73B3D4ee)
+    $color13 = rgba(7BC7DDee)
+    $color14 = rgba(9CB4E3ee)
+    $color15 = rgba(c3dde7ee)
+  '';
 
   home.sessionVariables = {
     GBM_BACKEND= "nvidia-drm";
