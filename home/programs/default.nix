@@ -8,6 +8,7 @@
     ./zsh
     ./kitty
     ./nvim
+    ./btop
     ./vscode
     ./rofi
     ./qutebrowser

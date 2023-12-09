@@ -29,16 +29,20 @@
     };
     extraConfig = ''
       # Copy-mode with Nvim
-      scrollback_pager ~/dotfiles/home-manager/programs/kitty/pager.sh 'INPUT_LINE_NUMBER' 'CURSOR_LINE' 'CURSOR_COLUMN'
-      map f1 launch --type overlay --stdin-source=@screen_scrollback ~/dotfiles/home-manager/programs/kitty/pager.sh
+      scrollback_pager ~/.config/kitty/pager.sh 'INPUT_LINE_NUMBER' 'CURSOR_LINE' 'CURSOR_COLUMN'
+      map f1 launch --type overlay --stdin-source=@screen_scrollback ~/.config/kitty/pager.sh
 
       # Kitty Nvim navigator
       allow_remote_control yes
       listen_on unix:@mykitty
-      map ctrl+j kitten ~/dotfiles/home-manager/programs/kitty/pass_keys.py neighboring_window bottom ctrl+j
-      map ctrl+k kitten ~/dotfiles/home-manager/programs/kitty/pass_keys.py neighboring_window top ctrl+k
-      map ctrl+h kitten ~/dotfiles/home-manager/programs/kitty/pass_keys.py neighboring_window left ctrl+h
-      map ctrl+l kitten ~/dotfiles/home-manager/programs/kitty/pass_keys.py neighboring_window right ctrl+l
+      map ctrl+j kitten ~/.config/kitty/pass_keys.py neighboring_window bottom ctrl+j
+      map ctrl+k kitten ~/.config/kitty/pass_keys.py neighboring_window top ctrl+k
+      map ctrl+h kitten ~/.config/kitty/pass_keys.py neighboring_window left ctrl+h
+      map ctrl+l kitten ~/.config/kitty/pass_keys.py neighboring_window right ctrl+l
     '';
+  };
+  home.file = {
+    ".config/kitty/pass_keys.py".source = ./pass_keys.py;
+    ".config/kitty/pager.sh".source = ./pager.sh;
   };
 }
