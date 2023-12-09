@@ -16,6 +16,7 @@
         ];
         modules-right = [
           "tray"
+          "memory"
           "hyprland/language"
           "pulseaudio"
           "network"
@@ -30,42 +31,47 @@
           format = "{title}";
           max-length = 50;
         };
-        "battery" = {
-          "states" = {
-            "warning" = 30;
-            "critical" = 15;
-          };
-          "format" = "{capacity}% {icon}";
-          "format-charging" = "{capacity}% ";
-          "format-plugged" = "{capacity}% ";
-          "format-alt" = "{time} {icon}";
-          "format-icons" = ["" "" "" "" ""];
+        memory = {
+          interval = 30;
+          format = "{}% ";
+          max-length = 10;
         };
-        "network" = {
-          "format-wifi" = "";
-          "format-ethernet" = "{ipaddr}/{cidr} ";
-          "tooltip-format" = "{ifname} via {gwaddr} ";
-          "format-linked" = "{ifname} (No IP) ";
-          "format-disconnected" = "Disconnected ⚠";
-          "format-alt" = "{ifname} {signalStrength}%: {ipaddr}/{cidr}";
-        };
-        "pulseaudio" = {
-          "format" = "{volume}% {icon} {format_source}";
-          "format-bluetooth" = "{volume}% {icon} {format_source}";
-          "format-bluetooth-muted" = " {icon} {format_source}";
-          "format-muted" = " {format_source}";
-          "format-source" = "{volume}% ";
-          "format-source-muted" = "";
-          "format-icons" = {
-              "headphone" = "";
-              "hands-free" = "";
-              "headset" = "";
-              "phone" = "";
-              "portable" = "";
-              "car" = "";
-              "default" = ["" "" ""];
+        battery = {
+          states = {
+            warning = 30;
+            critical = 15;
           };
-          "on-click" = "pavucontrol";
+          format = "{capacity}% {icon}";
+          format-charging = "{capacity}% ";
+          format-plugged = "{capacity}% ";
+          format-alt = "{time} {icon}";
+          format-icons = ["" "" "" "" ""];
+        };
+        network = {
+          format-wifi = "";
+          format-ethernet = "{ipaddr}/{cidr} ";
+          tooltip-format = "{ifname} via {gwaddr} ";
+          format-linked = "{ifname} (No IP) ";
+          format-disconnected = "Disconnected ⚠";
+          format-alt = "{ifname} {signalStrength}%: {ipaddr}/{cidr}";
+        };
+        pulseaudio = {
+          format = "{volume}% {icon} {format_source}";
+          format-bluetooth = "{volume}% {icon} {format_source}";
+          format-bluetooth-muted = " {icon} {format_source}";
+          format-muted = " {format_source}";
+          format-source = "{volume}% ";
+          format-source-muted = "";
+          format-icons = {
+              headphone = "";
+              hands-free = "";
+              headset = "";
+              phone = "";
+              portable = "";
+              car = "";
+              default = ["" "" ""];
+          };
+          on-click = "pavucontrol";
         };
         "hyprland/language" = {
           format = "{short} {variant}";
@@ -84,6 +90,7 @@
       }
 
       #workspaces,
+      #memory,
       #tray,
       #language,
       #pulseaudio,
@@ -93,6 +100,7 @@
         background: transparent;
       }
 
+      #memory,
       #tray,
       #language,
       #pulseaudio,

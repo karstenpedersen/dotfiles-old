@@ -12,7 +12,6 @@
     ./qutebrowser
     ./firefox
     ./waybar
-    ./mako
   ];
   
   nixpkgs = {
@@ -49,7 +48,6 @@
     ripgrep
     fd
     biber
-    # xdotool
     pstree 
     xclip
     hyprpicker
@@ -57,6 +55,7 @@
     pipewire
     wireplumber
     pavucontrol
+    polkit-kde-agent
   ];
   nixpkgs.config.permittedInsecurePackages = [
     "electron-24.8.6" # Used for obsidian

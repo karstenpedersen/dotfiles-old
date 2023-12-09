@@ -1,12 +1,12 @@
 { pkgs, config, ... }:
 
 {
-  options.services.mako = {
+  services.mako = {
     enable = true;
     textColor = "#fafafa";
     borderColor = "#fafafa";
     backgroundColor = "#000000";
     borderRadius = 0;
-    defaultTimeout = 10000;
+    defaultTimeout = 30000;
   };
 }

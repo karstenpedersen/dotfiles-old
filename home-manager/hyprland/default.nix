@@ -23,6 +23,7 @@
       # Autostart
       exec-once = mako
       exec-once = waybar
+      # exec-once = espanso start
 
       # Programs
       $terminal = kitty
@@ -136,13 +137,14 @@
       $mod = SUPER
 
       bind = $mod, return, exec, $terminal
-      bind = $mod SHIFT, Q, killactive, 
-      bind = $mod SHIFT, E, exit, 
+      bind = $mod SHIFT, q, killactive
+      bind = $mod SHIFT, e, exit
       bind = $mod, d, exec, $menu
-      bind = $mod SHIFT, C, exec, hyprpicker --format=[hex] -a
-      bind = $mod, V, togglefloating, 
-      # bind = $mod, P, pseudo, # dwindle
-      # bind = $mod, J, togglesplit, # dwindle
+      bind = $mod SHIFT, c, exec, hyprpicker --format=[hex] -a
+      bind = $mod, v, togglefloating
+      bind = $mod, u, focusurgentorlast
+      bind = $mod, tab, focuscurrentorlast
+      bind = $mod, f, fullscreen
 
       # Move focus with h,j,k,l
       bind = $mod, h, movefocus, l
@@ -159,14 +161,15 @@
             builtins.toString (x + 1 - (c * 10));
         in ''
           bind = $mod, ${ws}, workspace, ${toString (x + 1)}
-          bind = $mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}
+          bind = $mod SHIFT, ${ws}, movetoworkspacesilent, ${toString (x + 1)}
+          bind = $mod CTRL, ${ws}, movetoworkspace, ${toString (x + 1)}
         ''
       )
       10)}
       
       # Scratchpad
-      bind $mod, S, togglespecialworkspace, magic
-      bind $mod SHIFT, S, movetoworkspace, special:magic
+      bind = $mod, S, togglespecialworkspace, magic
+      bind = $mod SHIFT, S, movetoworkspace, special:magic
 
       # Move/resize windows with mainMod + LMB/RMB and dragging
       bindm = $mod, mouse:272, movewindow

@@ -60,6 +60,7 @@
       "wheel"
       "audio"
       "video"
+      "input"
     ];
     useDefaultShell = true;
   };
