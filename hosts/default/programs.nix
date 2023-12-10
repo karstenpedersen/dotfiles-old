@@ -1,20 +1,24 @@
 { config, pkgs, ... }:
 
+#let
+  #modules = ../../modules/home-manager;
+  # programs = import (modules + "/programs");
+#in 
 {
   imports = [
-    ./hypr
-    ./lf
-    ./git
-    ./zsh
-    ./kitty
-    ./nvim
-    ./btop
-    ./vscode
-    ./rofi
-    ./qutebrowser
-    ./firefox
-    ./waybar
-    ./zathura
+    ../../modules/home-manager/programs/hypr
+    ../../modules/home-manager/programs/lf
+    ../../modules/home-manager/programs/git
+    ../../modules/home-manager/programs/zsh
+    ../../modules/home-manager/programs/kitty
+    ../../modules/home-manager/programs/nvim
+    ../../modules/home-manager/programs/btop
+    ../../modules/home-manager/programs/vscode
+    ../../modules/home-manager/programs/rofi
+    ../../modules/home-manager/programs/qutebrowser
+    ../../modules/home-manager/programs/firefox
+    ../../modules/home-manager/programs/waybar
+    ../../modules/home-manager/programs/zathura
   ];
   
   nixpkgs = {

@@ -74,20 +74,6 @@
       # white
       color7 = "#${config.colorScheme.colors.base05}";
       color15 = "#${config.colorScheme.colors.base05}";
-
-      # background = "#${config.colorScheme.colors.base00}";
-      # foreground = "#${config.colorScheme.colors.base05}";
-      # selection_background = "#${config.colorScheme.colors.base05}";
-      # selection_foreground = "#${config.colorScheme.colors.base00}";
-      # url_color = "#${config.colorScheme.colors.base0D}";
-      # cursor = "#${config.colorScheme.colors.base0D}";
-      # cursor_text_color = "#${config.colorScheme.colors.base00}";
-      # active_border_color = "#${config.colorScheme.colors.base03}";
-      # inactive_border_color = "#${config.colorScheme.colors.base01}";
-      # active_tab_background = "#${config.colorScheme.colors.base00}";
-      # active_tab_foreground = "#${config.colorScheme.colors.base05}";
-      # inactive_tab_background = "#${config.colorScheme.colors.base01}";
-      # inactive_tab_foreground = "#${config.colorScheme.colors.base04}";
     };
     keybindings = {
       "ctrl+shift+enter" = "new_window_with_cwd";
@@ -101,6 +87,7 @@
       # Kitty Nvim navigator
       allow_remote_control yes
       listen_on unix:@mykitty
+      single_instance yes
       map ctrl+j kitten ~/.config/kitty/pass_keys.py neighboring_window bottom ctrl+j
       map ctrl+k kitten ~/.config/kitty/pass_keys.py neighboring_window top ctrl+k
       map ctrl+h kitten ~/.config/kitty/pass_keys.py neighboring_window left ctrl+h
@@ -109,6 +96,7 @@
   };
   home.file = {
     ".config/kitty/pass_keys.py".source = ./pass_keys.py;
+    ".config/kitty/neighboring_window.py".source = ./neighboring_window.py;
     ".config/kitty/pager.sh".source = ./pager.sh;
   };
 }

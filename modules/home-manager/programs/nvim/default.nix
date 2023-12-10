@@ -102,6 +102,10 @@
         config = toLuaFile ./lua/plugins/treesitter.lua;
       }
       {
+        plugin = nvim-surround;
+        config = toLua "require('nvim-surround').setup()";
+      }
+      {
         plugin = comment-nvim;
         config = toLua "require('Comment').setup()";
       }
@@ -109,7 +113,10 @@
         plugin = nvim-colorizer-lua;
         config = toLua "require('colorizer').setup()";
       }
-      indent-blankline-nvim
+      {
+        plugin = indent-blankline-nvim;
+        config = toLua "require('ibl').setup()";
+      }
       telescope-fzf-native-nvim
       harpoon
       neodev-nvim
@@ -118,8 +125,10 @@
       luasnip
       friendly-snippets
       vim-fugitive
+      vim-kitty-navigator
     ];
   };
 
+  # FTPlugin folder
   home.file.".config/nvim/ftplugin".source = ./ftplugin;
 }

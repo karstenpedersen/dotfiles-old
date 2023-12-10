@@ -3,6 +3,8 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/nixos/main-user.nix
+    inputs.home-manager.nixosModules.default
   ];
 
   programs.hyprland.enable = true;
@@ -52,24 +54,33 @@
   };
 
   # User 
-  users.users.karsten = {
-    isNormalUser = true;
-    description = "karsten";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "audio"
-      "video"
-      "input"
-    ];
-    useDefaultShell = true;
+  main-user.enable = true;
+  main-user.username = "karsten";
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "karsten" = import ./home.nix;
+    };
   };
+  # users.users.karsten = {
+  #   isNormalUser = true;
+  #   description = "karsten";
+  #   extraGroups = [
+  #     "networkmanager"
+  #     "wheel"
+  #     "audio"
+  #     "video"
+  #     "input"
+  #   ];
+  #   useDefaultShell = true;
+  # };
 
   # Packages
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     dconf
     neovim
+    git
   ];
 
   xdg.portal.enable = true;
