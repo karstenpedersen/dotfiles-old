@@ -130,6 +130,8 @@
       bind = $mod SHIFT, e, exit
       bind = $mod, d, exec, $menu
       bind = $mod SHIFT, c, exec, hyprpicker --format=[hex] -a
+      bind = $mod SHIFT, s, exec, grimblast copy area
+      bind = , Print, exec, grimblast copysave output ~/Pictures/Screenshots/"`date +"%Y-%m-%d-%H%M%S"`".png
       bind = $mod, v, togglefloating
       bind = $mod, u, focusurgentorlast
       bind = $mod, tab, focuscurrentorlast
@@ -155,21 +157,18 @@
       # Workspaces
       ${builtins.concatStringsSep "\n" (builtins.genList (
         x: let
-          ws = let
-            c = (x + 1) / 10;
-          in
-            builtins.toString (x + 1 - (c * 10));
+          ws = builtins.toString (x + 1);
         in ''
-          bind = $mod, ${ws}, workspace, ${toString (x + 1)}
-          bind = $mod SHIFT, ${ws}, movetoworkspacesilent, ${toString (x + 1)}
-          bind = $mod CTRL, ${ws}, movetoworkspace, ${toString (x + 1)}
+          bind = $mod, ${ws}, workspace, ${ws}
+          bind = $mod SHIFT, ${ws}, movetoworkspacesilent, ${ws}
+          bind = $mod CTRL, ${ws}, movetoworkspace, ${ws}
         ''
       )
-      10)}
+      9)}
       
       # Scratchpad
-      bind = $mod, S, togglespecialworkspace, magic
-      bind = $mod SHIFT, S, movetoworkspace, special:magic
+      bind = $mod, 0, togglespecialworkspace, magic
+      bind = $mod SHIFT, 0, movetoworkspace, special:magic
 
       # Move/resize windows with mainMod + LMB/RMB and dragging
       bindm = $mod, mouse:272, movewindow
