@@ -53,7 +53,6 @@
     fd
     biber
     pstree 
-    xclip
     hyprpicker
     wl-clipboard
     pipewire
@@ -64,14 +63,19 @@
     light
     playerctl
     grimblast
+    wtype
   ];
   nixpkgs.config.permittedInsecurePackages = [
     "electron-24.8.6" # Used for obsidian
   ];
 
   # Mime types
-  xdg.mimeApps.defaultApplications = {
-    "text/*" = ["nvim.desktop"];
-    "application/pdf" = ["zathura.desktop"];
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "text/*" = ["nvim.desktop"];
+      "text/markdown" = ["nvim.desktop"];
+      "application/pdf" = ["zathura.desktop"];
+    };
   };
 }

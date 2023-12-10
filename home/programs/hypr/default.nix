@@ -13,8 +13,9 @@
     enable = true;
     xwayland.enable = true;
     extraConfig = ''
-      # See https://wiki.hyprland.org/Configuring/Monitors/
-      monitor=,1920x1080@144,auto,1
+      # Monitors
+      monitor=,preferred,auto,1
+      monitor = eDP-1, 1920x1080@144, auto, 1
 
       # Fix slow startup
       exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
@@ -54,7 +55,7 @@
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
         gaps_in = 5
-        gaps_out = 5
+        gaps_out = 8
         border_size = 2
         col.active_border = rgba(${config.colorScheme.colors.base06}aa) rgba(${config.colorScheme.colors.base07}ee) 45deg 
         col.inactive_border = rgba(${config.colorScheme.colors.base04}aa)
@@ -129,6 +130,8 @@
       bind = $mod SHIFT, q, killactive
       bind = $mod SHIFT, e, exit
       bind = $mod, d, exec, $menu
+      bind = $mod SHIFT, f, exec, rofi -show filebrowser -show-icon
+      bind = $mod SHIFT, p, exec, rofi-pass
       bind = $mod SHIFT, c, exec, hyprpicker --format=[hex] -a
       bind = $mod SHIFT, s, exec, grimblast copy area
       bind = , Print, exec, grimblast copysave output ~/Pictures/Screenshots/"`date +"%Y-%m-%d-%H%M%S"`".png
