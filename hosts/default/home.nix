@@ -5,7 +5,7 @@
     inputs.nix-colors.homeManagerModules.default
     inputs.hyprland.homeManagerModules.default
     ./programs.nix
-    # ./services
+    ./services.nix
   ];
 
   # Home
@@ -13,7 +13,13 @@
   home.username = "karsten";
   home.homeDirectory = "/home/karsten";
   home.stateVersion = "23.05";
- 
+
   # Colorscheme
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    name = "mochaDark";
+    package = pkgs.catppuccin-cursors;
+  };
 }

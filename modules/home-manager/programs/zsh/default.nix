@@ -39,6 +39,4 @@
     shellAliases = {};
   };
   # environment.pathsToLink = [ "/share/zsh" ];
-
-
 }

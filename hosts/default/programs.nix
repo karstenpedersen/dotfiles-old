@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, outputs, ... }:
 
 {
   imports = [
@@ -45,7 +45,6 @@
     wl-clipboard
     pipewire
     wireplumber
-    pavucontrol
     polkit-kde-agent
     pamixer
     light
@@ -53,6 +52,7 @@
     grimblast
     wtype
     swayidle
+    # catppuccin-cursors
 
     # Applications
     zotero
@@ -60,6 +60,10 @@
     discord
     spotify
     nextcloud-client
+    pavucontrol
+
+    # Bloat
+    neofetch
   ];
   nixpkgs.config.permittedInsecurePackages = [
     "electron-24.8.6" # Used for obsidian
@@ -70,7 +74,6 @@
     enable = true;
     defaultApplications = {
       "text/*" = [ "nvim.desktop" ];
-      "text/markdown" = [ "nvim.desktop" ];
       "application/pdf" = [ "zathura.desktop" ];
     };
   };

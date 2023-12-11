@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./mako
-    ./espanso
+    ../../modules/home-manager/services/mako
+    ../../modules/home-manager/services/espanso
   ];
 }

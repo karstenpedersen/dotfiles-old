@@ -23,6 +23,8 @@
       ms-toolsai.jupyter-renderers
       ms-vscode-remote.remote-ssh
       arrterian.nix-env-selector
+      catppuccin.catppuccin-vsc
+      catppuccin.catppuccin-vsc-icons
     ];
     userSettings = {
       "workbench.startupEditor" = "none";
