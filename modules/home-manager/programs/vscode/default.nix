@@ -22,6 +22,7 @@
       ms-toolsai.jupyter-keymap
       ms-toolsai.jupyter-renderers
       ms-vscode-remote.remote-ssh
+      arrterian.nix-env-selector
     ];
     userSettings = {
       "workbench.startupEditor" = "none";
@@ -34,6 +35,9 @@
       "terminal.integrated.fontFamily" = "FiraMono";
       "[nix].editor.tabSize" = 2;
     };
+  };
+  home.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
   };
 }
 

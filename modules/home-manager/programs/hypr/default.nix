@@ -24,6 +24,7 @@
       # Autostart
       exec-once = mako
       exec-once = waybar
+      exec-once = swayidle -w timeout 300 'swaylock -f' timeout 360 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
 
       # source = ./colors
       exec-once = swww init
@@ -46,7 +47,7 @@
         kb_rules =
         follow_mouse = 1
         touchpad {
-            natural_scroll = no
+            natural_scroll = yes
         }
         sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
       }

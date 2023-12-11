@@ -19,6 +19,7 @@
         background-alt = mkLiteral "#${config.colorScheme.colors.base00}";
         foreground = mkLiteral "#${config.colorScheme.colors.base04}";
         foreground-alt = mkLiteral "#${config.colorScheme.colors.base05}";
+        primary = mkLiteral "#${config.colorScheme.colors.base06}aa";
 
         background-color = mkLiteral "transparent";
         text-color = mkLiteral "@foreground";
@@ -35,7 +36,8 @@
         text-color = mkLiteral "@foreground";
         background-color = mkLiteral "@background";
         border = mkLiteral "2px";
-        border-color = mkLiteral "@foreground";
+        border-color = mkLiteral "@primary";
+        border-radius = mkLiteral "3px";
         padding = mkLiteral "6px";
         transparency = "real";
       };

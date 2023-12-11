@@ -1,9 +1,5 @@
 { config, pkgs, ... }:
 
-#let
-  #modules = ../../modules/home-manager;
-  # programs = import (modules + "/programs");
-#in 
 {
   imports = [
     ../../modules/home-manager/programs/hypr
@@ -19,10 +15,11 @@
     ../../modules/home-manager/programs/firefox
     ../../modules/home-manager/programs/waybar
     ../../modules/home-manager/programs/zathura
+    ../../modules/home-manager/programs/swaylock
   ];
-  
+
   nixpkgs = {
-    overlays = [];
+    overlays = [ ];
     config = {
       allowUnfree = true;
       allowUnfreePredicate = _: true; # bug: https://github.com/nix-community/home-manager/issues/2942
@@ -32,31 +29,18 @@
   # Packages
   home.packages = with pkgs; [
     libnotify
-    btop
-    git
     devbox
     autojump
-    lf
     man-pages
     pass
     gnupg
-    kitty
-    zathura
     tectonic
-    zotero
-    obsidian
-    firefox
-    discord
-    spotify
-    nextcloud-client
-    vscodium
-    rofi-wayland
     xdragon
     pistol
     ripgrep
     fd
     biber
-    pstree 
+    pstree
     hyprpicker
     wl-clipboard
     pipewire
@@ -68,6 +52,14 @@
     playerctl
     grimblast
     wtype
+    swayidle
+
+    # Applications
+    zotero
+    obsidian
+    discord
+    spotify
+    nextcloud-client
   ];
   nixpkgs.config.permittedInsecurePackages = [
     "electron-24.8.6" # Used for obsidian
@@ -77,9 +69,9 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "text/*" = ["nvim.desktop"];
-      "text/markdown" = ["nvim.desktop"];
-      "application/pdf" = ["zathura.desktop"];
+      "text/*" = [ "nvim.desktop" ];
+      "text/markdown" = [ "nvim.desktop" ];
+      "application/pdf" = [ "zathura.desktop" ];
     };
   };
 }

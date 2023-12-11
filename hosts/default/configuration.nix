@@ -170,4 +170,7 @@
     };
     dev.enable = true;
   };
+
+  # Swaylock
+  security.pam.services.swaylock = {};
 }
