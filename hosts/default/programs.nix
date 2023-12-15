@@ -16,6 +16,7 @@
     ../../modules/home-manager/programs/waybar
     ../../modules/home-manager/programs/zathura
     ../../modules/home-manager/programs/swaylock
+    ../../modules/home-manager/programs/zoxide
   ];
 
   nixpkgs = {
@@ -38,6 +39,9 @@
     xdragon
     pistol
     ripgrep
+    fzf
+    eza
+    bat
     fd
     biber
     pstree
@@ -61,12 +65,13 @@
     spotify
     nextcloud-client
     pavucontrol
+    xournalpp
 
     # Bloat
     neofetch
   ];
   nixpkgs.config.permittedInsecurePackages = [
-    "electron-24.8.6" # Used for obsidian
+    "electron-25.9.0" # Used for obsidian
   ];
 
   # Mime types

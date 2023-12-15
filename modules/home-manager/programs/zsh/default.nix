@@ -1,4 +1,3 @@
-
 {
   programs.zsh = {
     enable = true;
@@ -36,7 +35,14 @@
         ];
       };
     };
-    shellAliases = {};
+    shellAliases = {
+      ls = "exa";
+      ll = "exa -alh";
+      tree = "exa --tree";
+      cat = "bat";
+      cd = "z";
+      zz = "z -";
+    };
   };
   # environment.pathsToLink = [ "/share/zsh" ];
 }

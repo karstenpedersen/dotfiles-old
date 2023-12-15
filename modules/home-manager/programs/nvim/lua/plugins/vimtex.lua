@@ -1,13 +1,13 @@
--- vim.api.nvim_create_autocmd({ "FileType" }, {
---     group = vim.api.nvim_create_augroup("lazynvim_vimtex_conceal", { clear = true}),
---     pattern = {
---         "bib",
---         "tex",
---     },
---     callback = function ()
---         vim.wo.conceallevel = 2
---     end
--- })
+vim.api.nvim_create_autocmd({ "FileType" }, {
+    group = vim.api.nvim_create_augroup("lazynvim_vimtex_conceal", { clear = true}),
+    pattern = {
+        "bib",
+        "tex",
+    },
+    callback = function ()
+        vim.wo.conceallevel = 2
+    end
+})
 
 vim.g.vimtex_view_method = 'zathura'
 vim.g.vimtex_compiler_method = 'tectonic'

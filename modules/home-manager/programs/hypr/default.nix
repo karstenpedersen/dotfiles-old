@@ -133,6 +133,7 @@
       bind = $mod SHIFT, e, exit
       bind = $mod, d, exec, $menu
       bind = $mod SHIFT, f, exec, rofi -show filebrowser -show-icon
+      bind = $mod SHIFT, w, exec, rofi -show window -show-icon
       bind = $mod SHIFT, p, exec, rofi-pass
       bind = $mod SHIFT, c, exec, hyprpicker --format=[hex] -a
       bind = $mod SHIFT, s, exec, grimblast copy area

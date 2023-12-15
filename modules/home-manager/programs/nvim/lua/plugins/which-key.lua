@@ -33,4 +33,12 @@ wk.register({
   ["<leader>S"] = { function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end, "Dynamic workspace symbols" },
   ["K"] = { function() vim.lsp.buf.hover() end, "Hover" },
   ["<leader>f"] = { function() vim.lsp.buf.format() end, "Format" },
+
+  -- Obsidian
+  ["<leader>o"] = {
+    name = "+Obsidian",
+    n = { "<cmd>ObsidianNew<cr>", "New note" },
+    s = { "<cmd>ObsidianSearch<cr>", "Search vault" },
+    f = { "<cmd>ObsidianFollowLink<cr>", "Follow link" },
+  },
 })
