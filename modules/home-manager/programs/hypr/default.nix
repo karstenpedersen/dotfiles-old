@@ -118,12 +118,15 @@
         disable_splash_rendering = true
       }
 
-      # Example windowrule v1
-      # windowrule = float, ^(kitty)$
-      # Example windowrule v2
-      # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
       # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
       windowrulev2 = nomaximizerequest, class:.* # You'll probably like this.
+      windowrule = workspace 8, discord
+      windowrule = noinitialfocus, discord
+      windowrule = workspace 9, title:Spotify
+      windowrule = noinitialfocus, title:Spotify
+      windowrule = pin, xdragon
+      windowrule = opacity 0.5, xdragon
+      windowrule = move 8 100%-100, xdragon
 
       # Keybinds
       $mod = SUPER

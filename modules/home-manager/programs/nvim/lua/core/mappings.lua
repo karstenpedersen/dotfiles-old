@@ -17,3 +17,8 @@ map('', '<Up>', '<Nop>')
 map('', '<Left>', '<Nop>')
 map('', '<Down>', '<Nop>')
 map('', '<Right>', '<Nop>')
+
+-- Line movement for softwrapped lines
+map('', 'j', "(v:count == 0 ? 'gj' : 'j')", { expr=true })
+map('', 'k', "(v:count == 0 ? 'gk' : 'k')", { expr=true })
+

@@ -11,7 +11,6 @@
     ../../modules/home-manager/programs/btop
     ../../modules/home-manager/programs/vscode
     ../../modules/home-manager/programs/rofi
-    ../../modules/home-manager/programs/qutebrowser
     ../../modules/home-manager/programs/firefox
     ../../modules/home-manager/programs/waybar
     ../../modules/home-manager/programs/zathura
@@ -56,6 +55,8 @@
     grimblast
     wtype
     swayidle
+    unzip
+    zip
     # catppuccin-cursors
 
     # Applications
@@ -66,6 +67,8 @@
     nextcloud-client
     pavucontrol
     xournalpp
+    godot_4
+    aseprite
 
     # Bloat
     neofetch
