@@ -75,6 +75,9 @@
   #   useDefaultShell = true;
   # };
 
+  # Android
+  programs.adb.enable = true;
+
   # Packages
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [

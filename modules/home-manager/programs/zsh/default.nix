@@ -42,6 +42,8 @@
       cat = "bat";
       cd = "z";
       zz = "z -";
+      zat = "zathura";
+      lg = "lazygit";
     };
   };
   # environment.pathsToLink = [ "/share/zsh" ];

@@ -25,6 +25,7 @@ in
         "audio"
         "video"
         "input"
+        "adbusers"
       ];
       useDefaultShell = true;
     };

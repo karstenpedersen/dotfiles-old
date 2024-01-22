@@ -120,6 +120,7 @@
             p.tree-sitter-cpp
             p.tree-sitter-c
             p.tree-sitter-bibtex
+            p.tree-sitter-dart
           ]));
           config = toLuaFile ./lua/plugins/treesitter.lua;
         }

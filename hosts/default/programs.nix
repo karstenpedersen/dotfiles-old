@@ -16,10 +16,15 @@
     ../../modules/home-manager/programs/zathura
     ../../modules/home-manager/programs/swaylock
     ../../modules/home-manager/programs/zoxide
+    ../../modules/home-manager/programs/lazygit
   ];
 
   nixpkgs = {
-    overlays = [ ];
+    overlays = [
+      (final: prev: {
+        obsidian-wayland = prev.obsidian.override {electron = final.electron_24;};
+      })
+    ];
     config = {
       allowUnfree = true;
       allowUnfreePredicate = _: true; # bug: https://github.com/nix-community/home-manager/issues/2942
@@ -57,11 +62,19 @@
     swayidle
     unzip
     zip
+    pdftk
+    python3
     # catppuccin-cursors
+    lazygit
+    lazydocker
+
+    android-tools
+    wayvnc
 
     # Applications
     zotero
-    obsidian
+    obsidian-wayland
+    rnote
     discord
     spotify
     nextcloud-client
@@ -69,12 +82,15 @@
     xournalpp
     godot_4
     aseprite
+    # sageWithDoc
+    geogebra
+    # geogebra6
 
     # Bloat
     neofetch
   ];
   nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0" # Used for obsidian
+    "electron-24.8.6" # Used for obsidian
   ];
 
   # Mime types
