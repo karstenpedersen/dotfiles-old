@@ -65,7 +65,6 @@
     pdftk
     python3
     # catppuccin-cursors
-    lazygit
     lazydocker
 
     android-tools
