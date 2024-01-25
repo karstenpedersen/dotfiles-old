@@ -6,7 +6,8 @@ wk.register({
     name = "+Telescope",
     f = { "<cmd>Telescope find_files<cr>", "Find files" },
     F = { "<cmd>Telescope file_browser<cr>", "File browser" },
-    g = { "<cmd>Telescope git_files<cr>", "Git files" },
+    g = { function () require("telescope").extensions.lazygit.lazygit() end, "Git files" },
+    -- g = { "<cmd>Telescope git_files<cr>", "Git files" },
     G = { "<cmd>Telescope live_grep<cr>", "Live grep" },
     h = { "<cmd>Telescope harpoon marks<cr>", "Harpoon marks" }
   },

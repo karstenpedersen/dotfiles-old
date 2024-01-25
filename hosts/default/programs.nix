@@ -17,6 +17,7 @@
     ../../modules/home-manager/programs/swaylock
     ../../modules/home-manager/programs/zoxide
     ../../modules/home-manager/programs/lazygit
+    ../../modules/home-manager/programs/bat
   ];
 
   nixpkgs = {
@@ -35,7 +36,7 @@
   home.packages = with pkgs; [
     libnotify
     devbox
-    autojump
+    # autojump
     man-pages
     pass
     gnupg
@@ -45,7 +46,6 @@
     ripgrep
     fzf
     eza
-    bat
     fd
     biber
     pstree
@@ -62,6 +62,7 @@
     swayidle
     unzip
     zip
+    gnutar
     pdftk
     python3
     # catppuccin-cursors
@@ -69,6 +70,8 @@
 
     android-tools
     wayvnc
+
+    pandoc
 
     # Applications
     zotero

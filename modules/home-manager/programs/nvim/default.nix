@@ -65,12 +65,12 @@
           config = toLuaFile ./lua/plugins/gitsigns.lua;
         }
         {
-          plugin = lualine-nvim;
-          config = toLuaFile ./lua/plugins/lualine.lua;
-        }
-        {
           plugin = own-obsidian-nvim;
           config = toLuaFile ./lua/plugins/obsidian-nvim.lua;
+        }
+        {
+          plugin = own-deadcolumn-nvim;
+          config = toLuaFile ./lua/plugins/deadcolumn-nvim.lua;
         }
         {
           plugin = nvim-base16;
@@ -94,6 +94,10 @@
               base0F = '#${config.colorScheme.colors.base0F}',
             })
           '';
+        }
+        {
+          plugin = lualine-nvim;
+          config = toLuaFile ./lua/plugins/lualine.lua;
         }
         {
           plugin = (nvim-treesitter.withPlugins (p: [
@@ -120,7 +124,6 @@
             p.tree-sitter-cpp
             p.tree-sitter-c
             p.tree-sitter-bibtex
-            p.tree-sitter-dart
           ]));
           config = toLuaFile ./lua/plugins/treesitter.lua;
         }
@@ -140,6 +143,10 @@
           plugin = indent-blankline-nvim;
           config = toLua "require('ibl').setup()";
         }
+        # {
+        #   plugin = nvim-autopairs;
+        #   config = toLua "require('nvim-autopairs').setup()";
+        # }
         telescope-fzf-native-nvim
         harpoon
         neodev-nvim
@@ -147,9 +154,11 @@
         cmp-nvim-lsp
         luasnip
         friendly-snippets
-        vim-fugitive
         vim-kitty-navigator
-        own-deadcolumn-nvim
+        
+        lazygit-nvim
+        vim-pandoc
+        vim-pandoc-syntax
       ];
     };
 

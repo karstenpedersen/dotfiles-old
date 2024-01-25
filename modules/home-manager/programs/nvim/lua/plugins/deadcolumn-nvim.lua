@@ -1,0 +1,2 @@
+require('deadcolumn').setup({
+});

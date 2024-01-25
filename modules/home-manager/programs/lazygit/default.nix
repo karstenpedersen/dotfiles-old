@@ -6,6 +6,7 @@
     settings = {
       os = {
         editPreset = "nvim";
+        open = "xdg-open {{filename}} >/dev/null";
       };
     };
   };

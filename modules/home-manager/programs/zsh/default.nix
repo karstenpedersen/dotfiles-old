@@ -34,6 +34,7 @@
           "root"
         ];
       };
+      prompt.theme = "pure";
     };
     shellAliases = {
       ls = "exa";
