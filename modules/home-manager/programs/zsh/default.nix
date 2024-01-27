@@ -23,7 +23,7 @@
       enable = true;
       caseSensitive = false;
       editor.dotExpansion = true;
-      editor.promptContext = true; # TODO - Prezto prompt context
+      editor.promptContext = true;
       syntaxHighlighting = {
         highlighters = [
           "main"
@@ -45,7 +45,7 @@
       zz = "z -";
       zat = "zathura";
       lg = "lazygit";
+      vi = "nvim";
     };
   };
-  # environment.pathsToLink = [ "/share/zsh" ];
 }

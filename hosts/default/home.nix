@@ -4,6 +4,7 @@
   imports = [
     inputs.nix-colors.homeManagerModules.default
     inputs.hyprland.homeManagerModules.default
+    inputs.nixvim.homeManagerModules.nixvim
     ./programs.nix
     ./services.nix
   ];

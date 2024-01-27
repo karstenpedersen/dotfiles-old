@@ -14,6 +14,10 @@
     hyprland.url = "github:hyprwm/Hyprland";
 
     # Neovim plugins
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-23.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     plugin-obsidian-nvim = {
       url = "github:epwalsh/obsidian.nvim";
       flake = false;

@@ -7,7 +7,8 @@
     ../../modules/home-manager/programs/git
     ../../modules/home-manager/programs/zsh
     ../../modules/home-manager/programs/kitty
-    ../../modules/home-manager/programs/nvim
+    # ../../modules/home-manager/programs/nvim
+    ../../modules/home-manager/programs/nixvim
     ../../modules/home-manager/programs/btop
     ../../modules/home-manager/programs/vscode
     ../../modules/home-manager/programs/rofi
