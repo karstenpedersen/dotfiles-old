@@ -37,7 +37,7 @@
       autoindent = true;
       scrolloff = 8;
       wrap = false;
-      
+
       # Search
       hlsearch = true;
       incsearch = true;
@@ -166,32 +166,49 @@
         lua = true;
       }
     ] ++
-      (let
-        keys = ["a" "s" "d" "f"];
+    (
+      let
+        keys = [ "a" "s" "d" "f" ];
       in
       (lib.lists.imap1
         (
           i: key:
-          {
-            key = "<leader>h${key}";
-            action = "function() require('harpoon.ui').add_file(${builtins.toString i}) end";
-            options.desc = "Goto mark ${builtins.toString i}";
-            lua = true;
-          }
+            {
+              key = "<leader>h${key}";
+              action = "function() require('harpoon.ui').add_file(${builtins.toString i}) end";
+              options.desc = "Goto mark ${builtins.toString i}";
+              lua = true;
+            }
         )
-      keys));
+        keys)
+    );
     plugins = {
       lualine = {
-         enable = true;
-         theme = "base16";
+        enable = true;
+        theme = "base16";
       };
       lsp = {
         enable = true;
         servers = {
-          tsserver.enable = true;
-          lua-ls.enable = true;
           rust-analyzer.enable = true;
-          nixd.enable = true;
+          ccls.enable = true;
+          cmake.enable = true;
+          pylsp.enable = true;
+          # dockerls.enable = true;
+          tsserver.enable = true;
+          jsonls.enable = true;
+          cssls.enable = true;
+          html.enable = true;
+          emmet_ls.enable = true;
+          eslint.enable = true;
+          svelte.enable = true;
+          astro.enable = true;
+          tailwindcss.enable = true;
+          # marksman.enable = true;
+          texlab.enable = true;
+          rnix-lsp.enable = true;
+          hls.enable = true;
+          lua-ls.enable = true;
         };
       };
       nvim-cmp = {
@@ -212,6 +229,7 @@
       };
       oil = {
         enable = true;
+        deleteToTrash = true;
       };
       treesitter = {
         enable = true;
@@ -223,25 +241,18 @@
         enable = true;
       };
       gitsigns = {
-	      enable = true;
-	      currentLineBlame = true;
-      };
-      surround = {
-	      enable = true;
-      };
-      nvim-autopairs = {
         enable = true;
+        currentLineBlame = true;
       };
       ts-autotag = {
         enable = true;
       };
-      comment-nvim = {
-	      enable = true;
-      };
-      project-nvim = {
-        enable = true;
-      };
+      surround.enable = true;
+      nvim-autopairs.enable = true;
+      comment-nvim.enable = true;
+      project-nvim.enable = true;
       which-key.enable = true;
+      markdown-preview.enable = true;
       # todo-comments = {
       #   enable = true;
       #   # colors = with config.colorScheme.colors; {
@@ -256,7 +267,7 @@
 
       # Writing
       vimtex = {
-	      enable = true;
+        enable = true;
       };
       goyo = {
         enable = true;
@@ -296,10 +307,10 @@
 
       # Visual
       nvim-colorizer = {
-	      enable = true;
+        enable = true;
       };
       indent-blankline = {
-      	enable = true;
+        enable = true;
       };
       illuminate = {
         enable = true;

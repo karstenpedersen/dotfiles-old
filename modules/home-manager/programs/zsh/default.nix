@@ -10,6 +10,7 @@
       proj = "$HOME/Projects";
       next = "$HOME/Nextcloud";
       vault = "$HOME/Nextcloud/vault";
+      dot = "$HOME/dotfiles/";
     };
     dotDir = ".config/zsh";
     history = {
