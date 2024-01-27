@@ -12,6 +12,12 @@ in
         username
       '';
     };
+    groups = lib.mkOption {
+      default = [ ];
+      description = ''
+        user groups
+      '';
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -25,8 +31,7 @@ in
         "audio"
         "video"
         "input"
-        "adbusers"
-      ];
+      ] ++ cfg.groups;
       useDefaultShell = true;
     };
   };

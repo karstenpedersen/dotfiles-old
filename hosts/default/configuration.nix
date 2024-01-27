@@ -54,26 +54,19 @@
   };
 
   # User 
-  main-user.enable = true;
-  main-user.username = "karsten";
+  main-user = {
+    enable = true;
+    username = "karsten";
+    groups = [
+      "adbusers"
+    ];
+  };
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
       "karsten" = import ./home.nix;
     };
   };
-  # users.users.karsten = {
-  #   isNormalUser = true;
-  #   description = "karsten";
-  #   extraGroups = [
-  #     "networkmanager"
-  #     "wheel"
-  #     "audio"
-  #     "video"
-  #     "input"
-  #   ];
-  #   useDefaultShell = true;
-  # };
 
   # Android
   programs.adb.enable = true;
@@ -98,7 +91,7 @@
       noto-fonts-emoji
       noto-fonts-extra
       twemoji-color-font
-      (nerdfonts.override { fonts = ["FiraMono"]; })
+      (nerdfonts.override { fonts = [ "FiraMono" ]; })
     ];
     fontconfig = {
       defaultFonts = {
@@ -125,7 +118,7 @@
 
   # Settings
   nix.settings = {
-    experimental-features = ["nix-command" "flakes"];
+    experimental-features = [ "nix-command" "flakes" ];
     auto-optimise-store = true;
   };
 
@@ -175,5 +168,5 @@
   };
 
   # Swaylock
-  security.pam.services.swaylock = {};
+  security.pam.services.swaylock = { };
 }

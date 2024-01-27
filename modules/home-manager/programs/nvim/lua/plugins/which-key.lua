@@ -19,7 +19,8 @@ wk.register({
     a = { function() require("harpoon.ui").nav_file(1) end, "Goto mark 1" },
     s = { function() require("harpoon.ui").nav_file(2) end, "Goto mark 2" },
     d = { function() require("harpoon.ui").nav_file(3) end, "Goto mark 3" },
-    f = { function() require("harpoon.ui").nav_file(4) end, "Goto mark 4" }
+    f = { function() require("harpoon.ui").nav_file(4) end, "Goto mark 4" },
+    c = { function() require("harpoon.ui").nav_file(4) end, "Goto mark 4" }
   },
 
   -- LSP
@@ -42,4 +43,11 @@ wk.register({
     s = { "<cmd>ObsidianSearch<cr>", "Search vault" },
     f = { "<cmd>ObsidianFollowLink<cr>", "Follow link" },
   },
+
+  -- Overrides
+  ["<c-d>"] = { "<C-d>zz", "Half page down" },
+  ["<c-u>"] = { "<C-u>zz", "Half page up" },
+  ["n"] = { "nzzzv", "Find next match" },
+  ["N"] = { "Nzzzv", "Find previous match" },
+
 })
