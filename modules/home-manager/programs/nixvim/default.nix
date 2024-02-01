@@ -18,6 +18,7 @@
   programs.nixvim = {
     enable = true;
     globals.mapleader = " ";
+    globals.maplocalleader = " ";
     options = {
       number = true;
       relativenumber = true;
@@ -44,7 +45,17 @@
       ignorecase = true;
       smartcase = true;
     };
+    colorschemes.base16 = {
+      enable = true;
+      customColorScheme = builtins.mapAttrs (name: value: "#${value}") config.colorScheme.colors;
+    };
     keymaps = [
+      {
+        key = "-";
+        action = "<cmd>Oil<cr>";
+        options.desc = "Open Oil";
+      }
+
       # Overrides
       {
         key = "<c-d>";
@@ -185,7 +196,11 @@
     plugins = {
       lualine = {
         enable = true;
+        sectionSeparators = null;
+        componentSeparators = null;
         theme = "base16";
+        extensions = [ "fzf" ];
+        disabledFiletypes.statusline = [ "oil" ];
       };
       lsp = {
         enable = true;
@@ -234,6 +249,14 @@
       treesitter = {
         enable = true;
       };
+      none-ls = {
+        enable = true;
+        # enableLspFormat = true;
+        sources.formatting = {
+          prettier.enable = true;
+          eslint.enable = true;
+        };
+      };
       luasnip = {
         enable = true;
       };
@@ -253,6 +276,15 @@
       project-nvim.enable = true;
       which-key.enable = true;
       markdown-preview.enable = true;
+      wilder = {
+        enable = true;
+        modes = [ ":" "/" "?" ];
+        render = ''
+          wilder.wildmenu_renderer({
+            highlighter = wilder.basic_highlighter()
+          });
+        '';
+      };
       # todo-comments = {
       #   enable = true;
       #   # colors = with config.colorScheme.colors; {
@@ -268,6 +300,12 @@
       # Writing
       vimtex = {
         enable = true;
+        installTexLive = true;
+        viewMethod = "zathura";
+        extraConfig = {
+          compiler_method = "tectonic";
+          compiler_tectonic.out_dir = "./out/";
+        };
       };
       goyo = {
         enable = true;
@@ -319,9 +357,7 @@
     extraPlugins = with pkgs.vimPlugins; [
       own-deadcolumn-nvim
     ];
-    colorschemes.base16 = {
-      enable = true;
-      customColorScheme = builtins.mapAttrs (name: value: "#${value}") config.colorScheme.colors;
-    };
   };
+
+  home.file.".config/nvim/ftplugin".source = ../nvim/ftplugin;
 }

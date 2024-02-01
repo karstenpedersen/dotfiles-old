@@ -123,8 +123,9 @@
   };
 
   # Shell
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
+  # programs.zsh.enable = true;
+  programs.bash.enable = true;
+  users.defaultUserShell = pkgs.bash;
 
   # System
   system.stateVersion = "unstable";

@@ -47,6 +47,7 @@
       zat = "zathura";
       lg = "lazygit";
       vi = "nvim";
+      v = "nvim";
     };
   };
 }

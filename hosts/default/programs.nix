@@ -5,7 +5,8 @@
     ../../modules/home-manager/programs/hypr
     ../../modules/home-manager/programs/lf
     ../../modules/home-manager/programs/git
-    ../../modules/home-manager/programs/zsh
+    # ../../modules/home-manager/programs/zsh
+    ../../modules/home-manager/programs/bash
     ../../modules/home-manager/programs/kitty
     # ../../modules/home-manager/programs/nvim
     ../../modules/home-manager/programs/nixvim
