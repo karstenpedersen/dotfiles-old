@@ -54,7 +54,7 @@
       '';
     };
     keybindings = {
-      xdo = "dragon-out";
+      X = "dragon-out";
       e = "editor-open";
       o = "open";
       d = "mkdir";

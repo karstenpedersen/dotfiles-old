@@ -59,6 +59,7 @@
     username = "karsten";
     groups = [
       "adbusers"
+      "vboxusers"
     ];
   };
   home-manager = {
@@ -77,11 +78,16 @@
     dconf
     neovim
     git
+    direnv
   ];
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   xdg.portal.config.common.default = "*";
+
+  # Virtualization
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "karsten" ];
 
   # Fonts
   fonts = {
@@ -124,7 +130,7 @@
 
   # Shell
   # programs.zsh.enable = true;
-  programs.bash.enable = true;
+  # programs.bash.enable = true;
   users.defaultUserShell = pkgs.bash;
 
   # System

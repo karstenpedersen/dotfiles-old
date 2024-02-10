@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 
-sudo nixos-rebuild switch --flake .
-home-manager --flake . switch
+sudo nixos-rebuild switch --flake .#nixos

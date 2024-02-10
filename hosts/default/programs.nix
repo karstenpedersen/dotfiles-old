@@ -5,10 +5,8 @@
     ../../modules/home-manager/programs/hypr
     ../../modules/home-manager/programs/lf
     ../../modules/home-manager/programs/git
-    # ../../modules/home-manager/programs/zsh
     ../../modules/home-manager/programs/bash
     ../../modules/home-manager/programs/kitty
-    # ../../modules/home-manager/programs/nvim
     ../../modules/home-manager/programs/nixvim
     ../../modules/home-manager/programs/btop
     ../../modules/home-manager/programs/vscode
@@ -67,19 +65,20 @@
     gnutar
     pdftk
     python3
-    # catppuccin-cursors
     lazydocker
+    pandoc
+    sshfs
 
+    # Android
     android-tools
     wayvnc
-
-    pandoc
 
     # Applications
     zotero
     obsidian-wayland
     rnote
     discord
+    webcord
     spotify
     nextcloud-client
     pavucontrol
@@ -89,20 +88,25 @@
     # sageWithDoc
     geogebra
     # geogebra6
+    chromium
+    anki-bin
 
     # Bloat
     neofetch
+
+    # Games
+    rogue
   ];
   nixpkgs.config.permittedInsecurePackages = [
     "electron-24.8.6" # Used for obsidian
   ];
 
   # Mime types
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications = {
-      "text/*" = [ "nvim.desktop" ];
-      "application/pdf" = [ "zathura.desktop" ];
-    };
-  };
+  # xdg.mimeApps = {
+  #   enable = true;
+  #   defaultApplications = {
+  #     "text/*" = [ "nvim.desktop" ];
+  #     "application/pdf" = [ "zathura.desktop" ];
+  #   };
+  # };
 }

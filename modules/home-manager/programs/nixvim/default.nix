@@ -27,6 +27,8 @@
       showmatch = true;
       cursorline = true;
       showcmd = true;
+      list = true;
+      listchars = "tab:» ,trail:-,nbsp:␣";
 
       # Indentation
       tabstop = 2;
@@ -54,6 +56,17 @@
         key = "-";
         action = "<cmd>Oil<cr>";
         options.desc = "Open Oil";
+      }
+      {
+        key = "<leader>m";
+        action = "<cmd>!make<cr>";
+        options.desc = "Projects";
+      }
+      {
+        key = "[c";
+        action = "function() require('treesitter-context').go_to_context(vim.v.count1) end";
+        options.desc = "Goto implementation";
+        lua = true;
       }
 
       # Overrides
@@ -172,7 +185,7 @@
       }
       {
         key = "<leader>th";
-        action = "function() require('harpoon.mark').add_file() end";
+        action = "function() require('harpoon.ui').toggle_quick_menu() end";
         options.desc = "Harpoon";
         lua = true;
       }
@@ -186,7 +199,7 @@
           i: key:
             {
               key = "<leader>h${key}";
-              action = "function() require('harpoon.ui').add_file(${builtins.toString i}) end";
+              action = "function() require('harpoon.ui').nav_file(${builtins.toString i}) end";
               options.desc = "Goto mark ${builtins.toString i}";
               lua = true;
             }
@@ -194,21 +207,32 @@
         keys)
     );
     plugins = {
-      lualine = {
+      airline = {
         enable = true;
-        sectionSeparators = null;
-        componentSeparators = null;
-        theme = "base16";
-        extensions = [ "fzf" ];
-        disabledFiletypes.statusline = [ "oil" ];
+        # symbols = {
+        #   branch = "";
+        #   colnr = " ℅:";
+        #   readonly = "";
+        #   linenr = " :";
+        #   maxlinenr = "☰ ";
+        #   dirty = "⚡";
+        # };
+        # filetypeOverrides = {
+        #   oil = [ "Oil" "" ];
+        # };
       };
       lsp = {
         enable = true;
         servers = {
-          rust-analyzer.enable = true;
+          rust-analyzer = {
+            enable = true;
+            installCargo = true;
+            installRustc = true;
+          };
           ccls.enable = true;
           cmake.enable = true;
           pylsp.enable = true;
+          java-language-server.enable = true;
           # dockerls.enable = true;
           tsserver.enable = true;
           jsonls.enable = true;
@@ -236,6 +260,15 @@
           { name = "luasnip"; }
         ];
       };
+      # lsp-format.enable = true;
+      # none-ls = {
+      #   enable = true;
+      #   enableLspFormat = true;
+      #   sources.formatting = {
+      #     prettier.enable = true;
+      #     eslint.enable = true;
+      #   };
+      # };
       telescope = {
         enable = true;
         extensions = {
@@ -246,56 +279,23 @@
         enable = true;
         deleteToTrash = true;
       };
-      treesitter = {
+      treesitter.enable = true;
+      treesitter-context = {
         enable = true;
+        maxLines = 5;
       };
-      none-ls = {
-        enable = true;
-        # enableLspFormat = true;
-        sources.formatting = {
-          prettier.enable = true;
-          eslint.enable = true;
-        };
-      };
-      luasnip = {
-        enable = true;
-      };
-      harpoon = {
-        enable = true;
-      };
+      luasnip.enable = true;
+      harpoon.enable = true;
       gitsigns = {
         enable = true;
         currentLineBlame = true;
       };
-      ts-autotag = {
-        enable = true;
-      };
+      # ts-autotag.enable = true;
       surround.enable = true;
-      nvim-autopairs.enable = true;
+      # nvim-autopairs.enable = true;
       comment-nvim.enable = true;
       project-nvim.enable = true;
       which-key.enable = true;
-      markdown-preview.enable = true;
-      wilder = {
-        enable = true;
-        modes = [ ":" "/" "?" ];
-        render = ''
-          wilder.wildmenu_renderer({
-            highlighter = wilder.basic_highlighter()
-          });
-        '';
-      };
-      # todo-comments = {
-      #   enable = true;
-      #   # colors = with config.colorScheme.colors; {
-      #   #   error = [ "DiagnosticError" "ErrorMsg" "#${base08}" ];
-      #   #   warning = [ "DiagnosticWarn" "WarningMsg" "#${base09}" ];
-      #   #   info = [ "DiagnosticInfo" "#${base0D}" ];
-      #   #   hint = [ "DiagnosticHint" "#${base0B}" ];
-      #   #   default = [ "Identifier" "#${base0E}" ];
-      #   #   test = [ "Identifier" "#${base0C}" ];
-      #   # };
-      # };
 
       # Writing
       vimtex = {
@@ -311,6 +311,7 @@
         enable = true;
         showLineNumbers = true;
       };
+      markdown-preview.enable = true;
       # obsidian = {
       #   enable = true;
       #   dir = "~/Nextcloud/vault";
@@ -347,10 +348,13 @@
       nvim-colorizer = {
         enable = true;
       };
-      indent-blankline = {
-        enable = true;
-      };
-      illuminate = {
+      # indent-blankline = {
+      #   enable = true;
+      # };
+      # illuminate = {
+      #   enable = true;
+      # };
+      alpha = {
         enable = true;
       };
     };
