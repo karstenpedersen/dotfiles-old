@@ -5,7 +5,9 @@
     ../../modules/home-manager/programs/hypr
     ../../modules/home-manager/programs/lf
     ../../modules/home-manager/programs/git
+    ../../modules/home-manager/programs/git
     ../../modules/home-manager/programs/bash
+    ../../modules/home-manager/programs/starship
     ../../modules/home-manager/programs/kitty
     ../../modules/home-manager/programs/nixvim
     ../../modules/home-manager/programs/btop
@@ -18,6 +20,7 @@
     ../../modules/home-manager/programs/zoxide
     ../../modules/home-manager/programs/lazygit
     ../../modules/home-manager/programs/bat
+    ../../modules/home-manager/programs/direnv
   ];
 
   nixpkgs = {
@@ -40,14 +43,16 @@
     man-pages
     pass
     gnupg
-    tectonic
+    # tectonic
     xdragon
     pistol
     ripgrep
     fzf
     eza
     fd
-    biber
+    gnused
+    jq
+    gawk
     pstree
     hyprpicker
     wl-clipboard
@@ -68,6 +73,7 @@
     lazydocker
     pandoc
     sshfs
+    bpftrace
 
     # Android
     android-tools
@@ -90,6 +96,7 @@
     # geogebra6
     chromium
     anki-bin
+    obs-studio
 
     # Bloat
     neofetch

@@ -78,7 +78,6 @@
     dconf
     neovim
     git
-    direnv
   ];
 
   xdg.portal.enable = true;

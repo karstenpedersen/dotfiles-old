@@ -29,6 +29,7 @@
       zat = "zathura";
       zz = "z -";
       gp = "grep";
+      fman = "compgen -c | fzf | xargs man";
     };
   };
 }

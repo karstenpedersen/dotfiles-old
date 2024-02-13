@@ -207,20 +207,6 @@
         keys)
     );
     plugins = {
-      airline = {
-        enable = true;
-        # symbols = {
-        #   branch = "";
-        #   colnr = " ℅:";
-        #   readonly = "";
-        #   linenr = " :";
-        #   maxlinenr = "☰ ";
-        #   dirty = "⚡";
-        # };
-        # filetypeOverrides = {
-        #   oil = [ "Oil" "" ];
-        # };
-      };
       lsp = {
         enable = true;
         servers = {
@@ -233,7 +219,6 @@
           cmake.enable = true;
           pylsp.enable = true;
           java-language-server.enable = true;
-          # dockerls.enable = true;
           tsserver.enable = true;
           jsonls.enable = true;
           cssls.enable = true;
@@ -243,7 +228,6 @@
           svelte.enable = true;
           astro.enable = true;
           tailwindcss.enable = true;
-          # marksman.enable = true;
           texlab.enable = true;
           rnix-lsp.enable = true;
           hls.enable = true;
@@ -260,15 +244,6 @@
           { name = "luasnip"; }
         ];
       };
-      # lsp-format.enable = true;
-      # none-ls = {
-      #   enable = true;
-      #   enableLspFormat = true;
-      #   sources.formatting = {
-      #     prettier.enable = true;
-      #     eslint.enable = true;
-      #   };
-      # };
       telescope = {
         enable = true;
         extensions = {
@@ -304,12 +279,13 @@
         viewMethod = "zathura";
         extraConfig = {
           compiler_method = "tectonic";
-          compiler_tectonic.out_dir = "./out/";
+          compiler_tectonic.out_dir = "./build/";
         };
       };
       goyo = {
         enable = true;
         showLineNumbers = true;
+        height = 100;
       };
       markdown-preview.enable = true;
       # obsidian = {
@@ -348,12 +324,6 @@
       nvim-colorizer = {
         enable = true;
       };
-      # indent-blankline = {
-      #   enable = true;
-      # };
-      # illuminate = {
-      #   enable = true;
-      # };
       alpha = {
         enable = true;
       };
@@ -361,7 +331,51 @@
     extraPlugins = with pkgs.vimPlugins; [
       own-deadcolumn-nvim
     ];
-  };
+    extraConfigLua = ''
+      vim.cmd([[highlight StatusLine guifg=#${config.colorScheme.colors.base03} guibg=#${config.colorScheme.colors.base01}]])
+      vim.cmd([[highlight StatusLineNC guifg=#${config.colorScheme.colors.base03} guibg=#${config.colorScheme.colors.base01}]])
 
+      local function git_branch()
+        local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+        if string.len(branch) > 0 then
+          return branch
+        else
+          return ":"
+        end
+      end
+
+      local function statusline()
+        local set_color_1 = "%#StatusLine#"
+        local branch = git_branch()
+        local set_color_2 = "%#StatusLineNC#"
+        local file_name = " %f"
+        local modified = "%m"
+        local align_right = "%="
+        local fileencoding = " %{&fileencoding?&fileencoding:&encoding}"
+        local fileformat = " [%{&fileformat}]"
+        local filetype = " %y"
+        local percentage = " %p%%"
+        local linecol = " %l:%c"
+
+        return string.format(
+          "%s %s %s%s%s%s%s%s%s%s%s",
+          set_color_1,
+          branch,
+          set_color_2,
+          file_name,
+          modified,
+          align_right,
+          filetype,
+          fileencoding,
+          fileformat,
+          percentage,
+          linecol
+        )
+      end
+
+      vim.opt.statusline = statusline()
+    '';
+  };
   home.file.".config/nvim/ftplugin".source = ../nvim/ftplugin;
 }
+
