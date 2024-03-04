@@ -21,6 +21,7 @@
     ../../modules/home-manager/programs/lazygit
     ../../modules/home-manager/programs/bat
     ../../modules/home-manager/programs/direnv
+    ../../modules/home-manager/programs/kakoune
   ];
 
   nixpkgs = {
@@ -39,11 +40,9 @@
   home.packages = with pkgs; [
     libnotify
     devbox
-    # autojump
     man-pages
     pass
     gnupg
-    # tectonic
     xdragon
     pistol
     ripgrep
@@ -77,7 +76,6 @@
 
     # Android
     android-tools
-    wayvnc
 
     # Applications
     zotero
@@ -91,18 +89,16 @@
     xournalpp
     godot_4
     aseprite
-    # sageWithDoc
     geogebra
-    # geogebra6
     chromium
     anki-bin
     obs-studio
-
-    # Bloat
-    neofetch
+    libsForQt5.kdenlive
+    libsForQt5.dragon
 
     # Games
     rogue
+    prismlauncher
   ];
   nixpkgs.config.permittedInsecurePackages = [
     "electron-24.8.6" # Used for obsidian
