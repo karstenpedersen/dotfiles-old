@@ -60,6 +60,7 @@
     groups = [
       "adbusers"
       "vboxusers"
+      "docker"
     ];
   };
   home-manager = {
@@ -78,6 +79,7 @@
     dconf
     neovim
     git
+    gnumake
   ];
 
   xdg.portal.enable = true;
@@ -85,8 +87,11 @@
   xdg.portal.config.common.default = "*";
 
   # Virtualization
+  virtualisation.docker.enable = true;
   virtualisation.virtualbox.host.enable = true;
+  virtualisation.waydroid.enable = true;
   users.extraGroups.vboxusers.members = [ "karsten" ];
+  users.extraGroups.docker.members = [ "karsten" ];
 
   # Fonts
   fonts = {

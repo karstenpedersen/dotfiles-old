@@ -77,11 +77,17 @@
     # Android
     android-tools
 
+    # VM
+    qemu
+    virt-manager
+
     # Applications
     zotero
     obsidian-wayland
     rnote
     discord
+    cinny-desktop
+    fluffychat
     webcord
     spotify
     nextcloud-client
@@ -95,6 +101,7 @@
     obs-studio
     libsForQt5.kdenlive
     libsForQt5.dragon
+    zoom-us
 
     # Games
     rogue

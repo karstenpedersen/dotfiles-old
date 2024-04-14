@@ -232,6 +232,7 @@
           rnix-lsp.enable = true;
           hls.enable = true;
           lua-ls.enable = true;
+          gopls.enable = true;
         };
       };
       nvim-cmp = {
