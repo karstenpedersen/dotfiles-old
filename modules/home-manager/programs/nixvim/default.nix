@@ -19,7 +19,7 @@
     enable = true;
     globals.mapleader = " ";
     globals.maplocalleader = " ";
-    options = {
+    opts = {
       number = true;
       relativenumber = true;
       colorcolumn = "80";
@@ -49,7 +49,7 @@
     };
     colorschemes.base16 = {
       enable = true;
-      customColorScheme = builtins.mapAttrs (name: value: "#${value}") config.colorScheme.colors;
+      colorscheme = builtins.mapAttrs (name: value: "#${value}") config.colorScheme.colors;
     };
     keymaps = [
       {
@@ -235,25 +235,22 @@
           gopls.enable = true;
         };
       };
-      nvim-cmp = {
+      cmp = {
         enable = true;
         autoEnableSources = true;
-        sources = [
-          { name = "nvim_lsp"; }
-          { name = "path"; }
-          { name = "buffer"; }
-          { name = "luasnip"; }
-        ];
+        # sources = [
+        #   { name = "nvim_lsp"; }
+        #   { name = "path"; }
+        #   { name = "buffer"; }
+        #   { name = "luasnip"; }
+        # ];
       };
       telescope = {
         enable = true;
-        extensions = {
-          project-nvim.enable = true;
-        };
       };
       oil = {
         enable = true;
-        deleteToTrash = true;
+        settings.delete_to_trash = true;
       };
       treesitter.enable = true;
       treesitter-context = {
@@ -264,29 +261,32 @@
       harpoon.enable = true;
       gitsigns = {
         enable = true;
-        currentLineBlame = true;
+        settings = {
+          current_line_blame = true;
+        };
       };
       # ts-autotag.enable = true;
       surround.enable = true;
       # nvim-autopairs.enable = true;
-      comment-nvim.enable = true;
+      comment.enable = true;
       project-nvim.enable = true;
       which-key.enable = true;
 
       # Writing
       vimtex = {
         enable = true;
-        installTexLive = true;
-        viewMethod = "zathura";
-        extraConfig = {
+        settings = {
+          view_method = "zathura";
           compiler_method = "tectonic";
           compiler_tectonic.out_dir = "./build/";
         };
       };
       goyo = {
         enable = true;
-        showLineNumbers = true;
-        height = 100;
+        settings = {
+          linenr = true;
+          height = 100;
+        };
       };
       markdown-preview.enable = true;
       # obsidian = {
@@ -325,9 +325,9 @@
       nvim-colorizer = {
         enable = true;
       };
-      alpha = {
-        enable = true;
-      };
+      # alpha = {
+      #   enable = true;
+      # };
     };
     extraPlugins = with pkgs.vimPlugins; [
       own-deadcolumn-nvim

@@ -7,11 +7,16 @@
     inputs.home-manager.nixosModules.default
   ];
 
+  # Hyprland
   programs.hyprland.enable = true;
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  # TODO: LOOK AT THIS
+  systemd.network.wait-online.enable = false;
+  boot.initrd.systemd.network.wait-online.enable = false;
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -35,22 +40,20 @@
   # XServer 
   services.xserver = {
     enable = true;
-    layout = "us,dk";
-    xkbVariant = "";
-    xkbOptions = "grp:alt_shift_toggle,caps:escape";
+    xkb.layout = "us,dk";
+    xkb.variant = "";
+    xkb.options = "grp:alt_shift_toggle,caps:escape";
     libinput.touchpad.naturalScrolling = true;
-    displayManager = {
-      sddm.enable = true;
-    };
   };
+  services.displayManager.sddm.enable = true;
 
   # Keys
   services.gnome.gnome-keyring.enable = true;
   services.pcscd.enable = true;
   programs.gnupg.agent = {
     enable = true;
-    pinentryFlavor = "curses";
     enableSSHSupport = true;
+    pinentryPackage = lib.mkForce pkgs.pinentry-qt;
   };
 
   # User 
@@ -133,25 +136,23 @@
   };
 
   # Shell
-  # programs.zsh.enable = true;
-  # programs.bash.enable = true;
   users.defaultUserShell = pkgs.bash;
 
   # System
-  system.stateVersion = "unstable";
-
-  # Games
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  system = {
+    stateVersion = "unstable";
+    # autoUpgrade.enable = true;
+    # autoUpgrade.allowReboot = true;
   };
 
-  # Nvidia
+  # Session variables
   environment.sessionVariables = {
+    FLAKE = "/home/karsten/dotfiles";
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
   };
+
+  # Nvidia
   hardware = {
     opengl.enable = true;
     opengl.driSupport32Bit = true;
