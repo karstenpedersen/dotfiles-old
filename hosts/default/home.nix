@@ -20,7 +20,8 @@
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
-    name = "mochaDark";
-    package = pkgs.catppuccin-cursors;
+    package = pkgs.gnome.adwaita-icon-theme;
+    name = "Adwaita";
+    size = 16;
   };
 }

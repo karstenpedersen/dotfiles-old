@@ -83,6 +83,7 @@
     neovim
     git
     gnumake
+    nh
   ];
 
   xdg.portal.enable = true;

@@ -40,10 +40,8 @@ in
       input = {
         kb_layout = "us,dk";
         kb_options = "grp:alt_shift_toggle,caps:escape";
-        follow_mouse = true;
-        touchpad = {
-          natural_scroll = true;
-        };
+        follow_mouse = false;
+        touchpad.natural_scroll = true;
         sensitivity = 0;
       };
       decoration = {
@@ -80,7 +78,6 @@ in
       };
       windowrule = [
         "workspace 8, discord"
-        "workspace 8, discord"
         "noinitialfocus, discord"
         "workspace 9, title:Spotify"
         "noinitialfocus, title:Spotify"
@@ -88,18 +85,14 @@ in
         "opacity 0.5, xdragon"
         "move 8 100%-100, xdragon"
       ];
-      windowrulev2 = [
-        "nomaximizerequest, class:.*"
-      ];
       bind = [
         "$mod, return, exec, $terminal"
         "$mod SHIFT, q, killactive"
-        "$mod SHIFT, e, exit"
         "$mod, d, exec, $menu"
         "$mod SHIFT, f, exec, rofi -show filebrowser -show-icon"
         "$mod SHIFT, w, exec, rofi -show window -show-icon"
         "$mod SHIFT, p, exec, rofi-pass"
-        "$mod SHIFT, c, exec, hyprpicker --format=[hex] -a"
+        "$mod SHIFT, c, exec, hyprpicker --format=hex -a"
         "$mod SHIFT, s, exec, grimblast copy area"
         ", Print, exec, grimblast copysave output ~/Pictures/Screenshots/\"\`date +\"%Y-%m-%d-%H%M%S\"\`\".png"
         "$mod, v, togglefloating"
