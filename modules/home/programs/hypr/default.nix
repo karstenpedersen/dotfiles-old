@@ -40,7 +40,7 @@ in
       input = {
         kb_layout = "us,dk";
         kb_options = "grp:alt_shift_toggle,caps:escape";
-        follow_mouse = false;
+        follow_mouse = true;
         touchpad.natural_scroll = true;
         sensitivity = 0;
       };

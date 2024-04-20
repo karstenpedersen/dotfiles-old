@@ -76,13 +76,13 @@
       scrollback_pager ~/.config/kitty/pager.sh 'INPUT_LINE_NUMBER' 'CURSOR_LINE' 'CURSOR_COLUMN'
 
       # Kitty Nvim navigator
-      allow_remote_control yes
-      listen_on unix:@mykitty
-      single_instance yes
-      map ctrl+j kitten ~/.config/kitty/pass_keys.py neighboring_window bottom ctrl+j
-      map ctrl+k kitten ~/.config/kitty/pass_keys.py neighboring_window top ctrl+k
-      map ctrl+h kitten ~/.config/kitty/pass_keys.py neighboring_window left ctrl+h
-      map ctrl+l kitten ~/.config/kitty/pass_keys.py neighboring_window right ctrl+l
+      # allow_remote_control yes
+      # listen_on unix:@mykitty
+      # single_instance yes
+      # map ctrl+j kitten ~/.config/kitty/pass_keys.py neighboring_window bottom ctrl+j
+      # map ctrl+k kitten ~/.config/kitty/pass_keys.py neighboring_window top ctrl+k
+      # map ctrl+h kitten ~/.config/kitty/pass_keys.py neighboring_window left ctrl+h
+      # map ctrl+l kitten ~/.config/kitty/pass_keys.py neighboring_window right ctrl+l
     '';
   };
   home.file = {

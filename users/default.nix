@@ -1,0 +1,3 @@
+{
+  karsten = import "./karsten";
+}

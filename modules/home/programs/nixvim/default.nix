@@ -28,7 +28,7 @@
       cursorline = true;
       showcmd = true;
       list = true;
-      listchars = "tab:» ,trail:-,nbsp:␣";
+      listchars = "tab:» ,trail:·,nbsp:␣";
 
       # Indentation
       tabstop = 2;
@@ -47,10 +47,11 @@
       ignorecase = true;
       smartcase = true;
     };
-    colorschemes.base16 = {
-      enable = true;
-      colorscheme = builtins.mapAttrs (name: value: "#${value}") config.colorScheme.colors;
-    };
+    # colorschemes.base16 = {
+    #   enable = true;
+    #   colorscheme = builtins.mapAttrs (name: value: "#${value}") config.colorScheme.colors;
+    # };
+    colorschemes.catppuccin.enable = true;
     keymaps = [
       {
         key = "-";
@@ -245,6 +246,10 @@
         #   { name = "luasnip"; }
         # ];
       };
+      cmp-buffer.enable = true;
+      cmp-nvim-lsp.enable = true;
+      cmp_luasnip.enable = true;
+      cmp-path.enable = true;
       telescope = {
         enable = true;
       };
@@ -256,6 +261,9 @@
       treesitter-context = {
         enable = true;
         maxLines = 5;
+      };
+      treesitter-textobjects = {
+        enable = true;
       };
       luasnip.enable = true;
       harpoon.enable = true;
@@ -271,6 +279,7 @@
       comment.enable = true;
       project-nvim.enable = true;
       which-key.enable = true;
+      todo-comments.enable = true;
 
       # Writing
       vimtex = {
@@ -289,45 +298,11 @@
         };
       };
       markdown-preview.enable = true;
-      # obsidian = {
-      #   enable = true;
-      #   dir = "~/Nextcloud/vault";
-      #   notesSubdir = "000-notes";
-      #   noteIdFunc = ''
-      #     function(title)
-      #       local suffix = ""
-      #       if title ~= nil then
-      #         suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
-      #       else
-      #         -- If title is nil, just add 4 random uppercase letters to the suffix.
-      #         for _ = 1, 4 do
-      #           suffix = suffix .. string.char(math.random(65, 90))
-      #         end
-      #       end
-      #       return suffix
-      #     end
-      #   '';
-      #   noteFrontmatterFunc = ''
-      #     function(note)
-      #       local out = { tags = note.tags }
-      #
-      #       if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
-      #         for k, v in pairs(note.metadata) do
-      #           out[k] = v
-      #         end
-      #       end
-      #       return out
-      #     end
-      #   '';
-      # };
 
       # Visual
       nvim-colorizer = {
         enable = true;
       };
-      # alpha = {
-      #   enable = true;
-      # };
     };
     extraPlugins = with pkgs.vimPlugins; [
       own-deadcolumn-nvim

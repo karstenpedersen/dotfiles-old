@@ -1,35 +1,35 @@
-{ config, pkgs, outputs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
-    ../../modules/home-manager/programs/hypr
-    ../../modules/home-manager/programs/lf
-    ../../modules/home-manager/programs/git
-    ../../modules/home-manager/programs/git
-    ../../modules/home-manager/programs/bash
-    ../../modules/home-manager/programs/starship
-    ../../modules/home-manager/programs/kitty
-    ../../modules/home-manager/programs/nixvim
-    ../../modules/home-manager/programs/btop
-    ../../modules/home-manager/programs/vscode
-    ../../modules/home-manager/programs/rofi
-    ../../modules/home-manager/programs/firefox
-    ../../modules/home-manager/programs/waybar
-    ../../modules/home-manager/programs/zathura
-    ../../modules/home-manager/programs/swaylock
-    ../../modules/home-manager/programs/zoxide
-    ../../modules/home-manager/programs/lazygit
-    ../../modules/home-manager/programs/bat
-    ../../modules/home-manager/programs/direnv
-    ../../modules/home-manager/programs/kakoune
+    ../../modules/home/programs/hypr
+    # ../../modules/home/programs/lf
+    # inputs.self.nixosModules.home-programs-lf
+    ../../modules/home/programs/git
+    ../../modules/home/programs/bash
+    ../../modules/home/programs/starship
+    ../../modules/home/programs/kitty
+    ../../modules/home/programs/nixvim
+    ../../modules/home/programs/btop
+    ../../modules/home/programs/vscode
+    ../../modules/home/programs/rofi
+    ../../modules/home/programs/firefox
+    ../../modules/home/programs/waybar
+    ../../modules/home/programs/zathura
+    ../../modules/home/programs/swaylock
+    ../../modules/home/programs/zoxide
+    ../../modules/home/programs/lazygit
+    ../../modules/home/programs/bat
+    ../../modules/home/programs/direnv
+    ../../modules/home/programs/kakoune
   ];
 
   nixpkgs = {
-    overlays = [
-      (final: prev: {
-        obsidian-wayland = prev.obsidian.override {electron = final.electron_24;};
-      })
-    ];
+    # overlays = [
+    #   (final: prev: {
+    #     obsidian-wayland = prev.obsidian.override {electron = final.electron_24;};
+    #   })
+    # ];
     config = {
       allowUnfree = true;
       allowUnfreePredicate = _: true; # bug: https://github.com/nix-community/home-manager/issues/2942
@@ -39,7 +39,6 @@
   # Packages
   home.packages = with pkgs; [
     libnotify
-    devbox
     man-pages
     pass
     gnupg
@@ -68,10 +67,9 @@
     zip
     gnutar
     pdftk
-    python3
-    lazydocker
+    # python3
+    # lazydocker
     pandoc
-    sshfs
     bpftrace
 
     # Android
@@ -83,7 +81,7 @@
 
     # Applications
     zotero
-    obsidian-wayland
+    obsidian
     rnote
     discord
     cinny-desktop
@@ -96,7 +94,7 @@
     godot_4
     aseprite
     geogebra
-    chromium
+    # chromium
     anki-bin
     obs-studio
     libsForQt5.kdenlive
@@ -107,9 +105,9 @@
     rogue
     prismlauncher
   ];
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-24.8.6" # Used for obsidian
-  ];
+  # nixpkgs.config.permittedInsecurePackages = [
+  #   "electron-24.8.6" # Used for obsidian
+  # ];
 
   # Mime types
   # xdg.mimeApps = {

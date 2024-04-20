@@ -14,10 +14,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # TODO: LOOK AT THIS
-  systemd.network.wait-online.enable = false;
-  boot.initrd.systemd.network.wait-online.enable = false;
-
   # Enable networking
   networking.networkmanager.enable = true;
   networking.hostName = "nixos"; # Define your hostname.
@@ -79,11 +75,13 @@
   # Packages
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    dconf
+    # dconf
+    chromium
     neovim
     git
     gnumake
     nh
+    wget
   ];
 
   xdg.portal.enable = true;
@@ -131,13 +129,22 @@
   hardware.bluetooth.enable = true;
 
   # Settings
-  nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
-    auto-optimise-store = true;
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      auto-optimise-store = true;
+      substituters = ["https://hyprland.cachix.org"];
+      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+    };
+
+    # From flake-utils-plus
+    generateNixPathFromInputs = true;
+    generateRegistryFromInputs = true;
+    linkInputs = true;
   };
 
   # Shell
-  users.defaultUserShell = pkgs.bash;
+  # users.defaultUserShell = pkgs.bash;
 
   # System
   system = {
