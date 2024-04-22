@@ -70,6 +70,7 @@
         "editor.formatOnSave" = true;
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
       };
+    };
   };
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1";

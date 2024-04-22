@@ -93,8 +93,8 @@ in
           disable_splash_rendering = true;
         };
         windowrule = [
-          "workspace 8, discord"
-          "noinitialfocus, discord"
+          "workspace 8, title:WebCord"
+          "noinitialfocus, title:WebCord"
           "workspace 9, title:Spotify"
           "noinitialfocus, title:Spotify"
           "pin, xdragon"
