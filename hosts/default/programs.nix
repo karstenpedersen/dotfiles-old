@@ -3,8 +3,7 @@
 {
   imports = [
     ../../modules/home/programs/hypr
-    # ../../modules/home/programs/lf
-    # inputs.self.nixosModules.home-programs-lf
+    ../../modules/home/programs/lf
     ../../modules/home/programs/git
     ../../modules/home/programs/bash
     ../../modules/home/programs/starship
@@ -22,32 +21,21 @@
     ../../modules/home/programs/bat
     ../../modules/home/programs/direnv
     ../../modules/home/programs/kakoune
+    ../../modules/home/programs/fzf
   ];
-
-  nixpkgs = {
-    # overlays = [
-    #   (final: prev: {
-    #     obsidian-wayland = prev.obsidian.override {electron = final.electron_24;};
-    #   })
-    # ];
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = _: true; # bug: https://github.com/nix-community/home-manager/issues/2942
-    };
-  };
 
   # Packages
   home.packages = with pkgs; [
-    libnotify
+    # libnotify
     man-pages
     pass
     gnupg
     xdragon
     pistol
     ripgrep
-    fzf
     eza
     fd
+    file
     gnused
     jq
     gawk
@@ -67,54 +55,34 @@
     zip
     gnutar
     pdftk
-    # python3
-    # lazydocker
     pandoc
     bpftrace
 
     # Android
     android-tools
 
-    # VM
-    qemu
-    virt-manager
-
     # Applications
     zotero
+    anki-bin
     obsidian
-    rnote
-    discord
-    cinny-desktop
+    spotify
     fluffychat
     webcord
-    spotify
+    zoom-us
     nextcloud-client
     pavucontrol
-    xournalpp
-    godot_4
-    aseprite
-    geogebra
-    # chromium
-    anki-bin
     obs-studio
     libsForQt5.kdenlive
     libsForQt5.dragon
-    zoom-us
 
     # Games
-    rogue
+    steam
     prismlauncher
-  ];
-  # nixpkgs.config.permittedInsecurePackages = [
-  #   "electron-24.8.6" # Used for obsidian
-  # ];
 
-  # Mime types
-  # xdg.mimeApps = {
-  #   enable = true;
-  #   defaultApplications = {
-  #     "text/*" = [ "nvim.desktop" ];
-  #     "application/pdf" = [ "zathura.desktop" ];
-  #   };
-  # };
+    # Gamedev
+    godot_4
+    aseprite
+  ];
+
+  nixpkgs.config.allowUnfree = true;
 }

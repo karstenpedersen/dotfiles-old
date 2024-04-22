@@ -1,9 +1,9 @@
-{ inputs, lib, config, pkgs, ... }:
+{ inputs, lib, pkgs, ... }:
 
 {
   imports = [
-    inputs.nix-colors.homeManagerModules.default
     inputs.hyprland.homeManagerModules.default
+    inputs.nix-colors.homeManagerModules.default
     inputs.nixvim.homeManagerModules.nixvim
     ./programs.nix
     ./services.nix
@@ -15,7 +15,7 @@
   home.homeDirectory = "/home/karsten";
   home.stateVersion = "23.05";
 
-  # Colorscheme
+  # Theme
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
   home.pointerCursor = {
     gtk.enable = true;

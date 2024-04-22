@@ -75,7 +75,6 @@
   # Packages
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    # dconf
     chromium
     neovim
     git
@@ -142,9 +141,6 @@
     generateRegistryFromInputs = true;
     linkInputs = true;
   };
-
-  # Shell
-  # users.defaultUserShell = pkgs.bash;
 
   # System
   system = {

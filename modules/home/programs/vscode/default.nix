@@ -25,6 +25,11 @@
       arrterian.nix-env-selector
       catppuccin.catppuccin-vsc
       catppuccin.catppuccin-vsc-icons
+      redhat.java
+      vscjava.vscode-maven
+      vscjava.vscode-java-test
+      vscjava.vscode-java-dependency
+      vscjava.vscode-java-debug
     ];
     userSettings = {
       "workbench.startupEditor" = "none";
@@ -35,8 +40,36 @@
       "editor.folding" = false;
       "window.menuBarVisibility" = "toggle";
       "terminal.integrated.fontFamily" = "FiraMono";
-      "[nix].editor.tabSize" = 2;
-    };
+      "enabledDiagnosticLevels" =	[ "error" "warning" ];
+      "workbench.colorTheme" = "Catppuccin Mocha";
+      "[nix]" = {
+        "editor.tabSize" = 2;
+      };
+      "[svelte]" = {
+        "editor.tabSize" = 2;
+        "editor.formatOnSave" = true;
+        "editor.defaultFormatter" = "svelte.svelte-vscode";
+      };
+      "[html]" = {
+        "editor.tabSize" = 2;
+        "editor.formatOnSave" = true;
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      };
+      "[css]" = {
+        "editor.tabSize" = 2;
+        "editor.formatOnSave" = true;
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      };
+      "[javascript]" = {
+        "editor.tabSize" = 2;
+        "editor.formatOnSave" = true;
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      };
+      "[typescript]" = {
+        "editor.tabSize" = 2;
+        "editor.formatOnSave" = true;
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      };
   };
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1";
