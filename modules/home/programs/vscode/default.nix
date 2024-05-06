@@ -25,11 +25,13 @@
       arrterian.nix-env-selector
       catppuccin.catppuccin-vsc
       catppuccin.catppuccin-vsc-icons
+      gruntfuggly.todo-tree
       redhat.java
       vscjava.vscode-maven
       vscjava.vscode-java-test
       vscjava.vscode-java-dependency
       vscjava.vscode-java-debug
+      golang.go
     ];
     userSettings = {
       "workbench.startupEditor" = "none";
@@ -38,10 +40,15 @@
       "explorer.compactFolders" = false;
       "editor.minimap.enabled" = false;
       "editor.folding" = false;
+      "editor.scrollBeyondLastLine" = true;
+      "editor.cursorSurroundingLines" = 8;
       "window.menuBarVisibility" = "toggle";
       "terminal.integrated.fontFamily" = "FiraMono";
-      "enabledDiagnosticLevels" =	[ "error" "warning" ];
+      "errorLens.enabledDiagnosticLevels" =	[ "error" "warning" ];
       "workbench.colorTheme" = "Catppuccin Mocha";
+      "vim.useSystemClipboard" = true;
+      "vim.hlsearch" = true;
+      "vim.leader" = "<space>";
       "[nix]" = {
         "editor.tabSize" = 2;
       };
@@ -69,6 +76,9 @@
         "editor.tabSize" = 2;
         "editor.formatOnSave" = true;
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      };
+      "[java]" = {
+        "editor.tabSize" = 4;
       };
     };
   };

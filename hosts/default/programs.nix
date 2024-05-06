@@ -57,6 +57,8 @@
     pdftk
     pandoc
     bpftrace
+    trashy
+    xxd
 
     # Android
     android-tools
@@ -74,6 +76,7 @@
     obs-studio
     libsForQt5.kdenlive
     libsForQt5.dragon
+    keepassxc
 
     # Games
     steam

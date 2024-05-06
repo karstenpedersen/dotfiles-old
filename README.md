@@ -25,7 +25,7 @@ cd dotfiles
 chmod +x install.sh
 
 # Build NixOS and home-manager
-./install.sh
+sudo nixos-rebuild switch --flake .#<hostname>
 ```
 
 ## 

@@ -4,7 +4,7 @@
   programs.kitty = {
     enable = true;
     settings = {
-      tab_title_template = "{index}: {title}";
+      # tab_title_template = "{index}: {title}";
 
       font_family = "FiraMono";
       bold_font = "FiraMono Bold";
@@ -63,21 +63,23 @@
       color7 = "#${config.colorScheme.colors.base05}";
       color15 = "#${config.colorScheme.colors.base05}";
     };
+    shellIntegration.enableBashIntegration = true;
     keybindings = {
       "ctrl+shift+enter" = "new_window_with_cwd";
       "ctrl+shift+t" = "new_tab_with_cwd";
+      "ctrl+shift+o" = "pass_selection_to_program firefox";
       "ctrl+f2" = "detach_window";
       "ctrl+f3" = "detach_window new-tab";
-      "ctrl+f4" = "detach_window ask";
-      "f9" = "close_other_windows_in_tab";
+      "ctrl+f9" = "close_other_windows_in_tab";
+      "f1" = "show_last_visited_command_output";
     };
     extraConfig = ''
       # Copy-mode with Nvim
       scrollback_pager ~/.config/kitty/pager.sh 'INPUT_LINE_NUMBER' 'CURSOR_LINE' 'CURSOR_COLUMN'
 
       # Kitty Nvim navigator
-      # allow_remote_control yes
-      # listen_on unix:@mykitty
+      allow_remote_control yes
+      listen_on unix:@mykitty
       # single_instance yes
       # map ctrl+j kitten ~/.config/kitty/pass_keys.py neighboring_window bottom ctrl+j
       # map ctrl+k kitten ~/.config/kitty/pass_keys.py neighboring_window top ctrl+k
@@ -86,8 +88,8 @@
     '';
   };
   home.file = {
-    ".config/kitty/pass_keys.py".source = ./pass_keys.py;
-    ".config/kitty/neighboring_window.py".source = ./neighboring_window.py;
+    # ".config/kitty/pass_keys.py".source = ./pass_keys.py;
+    # ".config/kitty/neighboring_window.py".source = ./neighboring_window.py;
     ".config/kitty/pager.sh".source = ./pager.sh;
   };
 }

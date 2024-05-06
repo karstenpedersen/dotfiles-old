@@ -12,34 +12,37 @@
       icons = true;
       tabstop = 2;
       ratios = "1:2:3";
+      scrolloff = 8;
+      incfilter = true;
+      incsearch = true;
+      roundbox = true;
     };
     commands = {
-      dragon-out = ''%${pkgs.xdragon}/bin/xdragon -a -x "$fx"'';
       editor-open = ''$$EDITOR "$f"'';
-      open = ''$$EDITOR "$f"'';
-      mkdir = ''
-        ''${{printf "Directory name: "
-          read DIR
-          mkdir $DIR
-        }}
-      '';
-      mkfile = ''
-        ''${{printf "File name: "
-          read FILE
-          touch $FILE
-        }}
-      '';
+      open = ''$$OPENER "$f"'';
+      mkdir = ''%printf "Directory name: "; read ans; mkdir $ans'';
+      mkfile = ''%printf "File name: "; read ans; touch $ans'';
+      chmod = ''%printf "Mode bits: "; read ans; for file in "$fx" do chmod $ans $file done'';
+      dragon-out = ''%${pkgs.xdragon}/bin/xdragon -a -x "$fx"'';
       get-mime-type = "%xdg-mime query filetype \"$f\"";
       trash = ''
+        ''${{
+          for file in "$fx" do
+            trash put "$(basename "$file")"
+          done
+        }}
       '';
       extract = ''
         ''${{
           set -f
           case $f in
+            *.zip) unzip $f;;
             *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
             *.tar.gz|*.tgz) tar xzvf $f;;
             *.tar.xz|*.txz) tar xJvf $f;;
-            *.zip) unzip $f;;
+            *.tar) tar -xvf $f;;
+            *.rar) unrar $f;;
+            *) echo "Unsupported format";;
           esac
         }}
       '';

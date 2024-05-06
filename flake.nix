@@ -31,7 +31,7 @@
     {
       nixosModules = import ./modules { lib = nixpkgs.lib; };
       nixosConfigurations = {
-        nixos = nixpkgs.lib.nixosSystem {
+        laptop = nixpkgs.lib.nixosSystem {
           modules = [
             ./hosts/default/configuration.nix
             utils.nixosModules.autoGenFromInputs

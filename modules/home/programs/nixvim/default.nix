@@ -224,6 +224,10 @@
           jsonls.enable = true;
           cssls.enable = true;
           html.enable = true;
+          htmx.enable = true;
+          gopls.enable = true;
+          templ.enable = true;
+          sqls.enable = true;
           emmet_ls.enable = true;
           eslint.enable = true;
           svelte.enable = true;
@@ -233,17 +237,26 @@
           rnix-lsp.enable = true;
           hls.enable = true;
           lua-ls.enable = true;
-          gopls.enable = true;
+          marksman.enable = true;
         };
       };
       cmp = {
         enable = true;
-        autoEnableSources = true;
+        # autoEnableSources = true;
+        settings.sources = [
+          { name = "nvim_lsp"; }
+          { name = "luasnip"; }
+          { name = "buffer"; }
+          { name = "path"; }
+        ];
       };
-      cmp-buffer.enable = true;
       cmp-nvim-lsp.enable = true;
-      cmp_luasnip.enable = true;
+      cmp-buffer.enable = true;
       cmp-path.enable = true;
+      cmp_luasnip.enable = true;
+      # cmp-path.enable = true;
+      cmp-cmdline.enable = true;
+      cmp-latex-symbols.enable = true;
       telescope = {
         enable = true;
       };
@@ -270,10 +283,10 @@
       # ts-autotag.enable = true;
       surround.enable = true;
       # nvim-autopairs.enable = true;
-      comment.enable = true;
-      project-nvim.enable = true;
+      # project-nvim.enable = true;
       which-key.enable = true;
       todo-comments.enable = true;
+      comment.enable = true;
 
       # Writing
       vimtex = {
@@ -346,6 +359,6 @@
       vim.opt.statusline = statusline()
     '';
   };
-  home.file.".config/nvim/ftplugin".source = ../nvim/ftplugin;
+  home.file.".config/nvim/ftplugin".source = ./ftplugin;
 }
 

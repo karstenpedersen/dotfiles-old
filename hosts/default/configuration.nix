@@ -16,7 +16,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "laptop"; # Define your hostname.
 
   # i18n
   time.timeZone = "Europe/Copenhagen";
@@ -150,10 +150,12 @@
   };
 
   # Session variables
-  environment.sessionVariables = {
-    FLAKE = "/home/karsten/dotfiles";
-    WLR_NO_HARDWARE_CURSORS = "1";
-    NIXOS_OZONE_WL = "1";
+  environment = {
+    sessionVariables = {
+      FLAKE = "/home/karsten/dotfiles";
+      WLR_NO_HARDWARE_CURSORS = "1";
+      NIXOS_OZONE_WL = "1";
+    };
   };
 
   # Nvidia

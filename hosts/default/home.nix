@@ -14,6 +14,13 @@
   home.username = "karsten";
   home.homeDirectory = "/home/karsten";
   home.stateVersion = "23.05";
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "codium";
+    OPENER = "codium";
+    TERMINAL = "kitty";
+    PAGER = "less";
+  };
 
   # Theme
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
