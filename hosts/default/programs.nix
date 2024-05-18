@@ -40,8 +40,10 @@
     jq
     gawk
     pstree
+    git-ignore
     hyprpicker
     wl-clipboard
+    cliphist
     pipewire
     wireplumber
     polkit-kde-agent
@@ -59,6 +61,7 @@
     bpftrace
     trashy
     xxd
+    openssl
 
     # Android
     android-tools

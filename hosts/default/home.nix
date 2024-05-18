@@ -24,6 +24,7 @@
 
   # Theme
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
+  # colorScheme = inputs.nix-colors.colorSchemes.grayscale-dark;
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;

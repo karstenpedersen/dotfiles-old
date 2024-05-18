@@ -29,6 +29,7 @@
       showcmd = true;
       list = true;
       listchars = "tab:» ,trail:·,nbsp:␣";
+      inccommand = "nosplit";
 
       # Indentation
       tabstop = 2;
@@ -39,6 +40,7 @@
       smartindent = true;
       autoindent = true;
       scrolloff = 8;
+      sidescrolloff = 6;
       wrap = false;
 
       # Search
@@ -46,6 +48,20 @@
       incsearch = true;
       ignorecase = true;
       smartcase = true;
+
+      # Split
+      splitbelow = true;
+      splitright = true;
+
+      clipboard = "unnamedplus";
+
+      # Menus
+      pumheight = 16;
+      completeopt = [
+        "menu"
+        "menuone"
+        "noselect"
+      ];
     };
     # colorschemes.base16 = {
     #   enable = true;
@@ -61,7 +77,7 @@
       {
         key = "<leader>m";
         action = "<cmd>!make<cr>";
-        options.desc = "Projects";
+        options.desc = "Make";
       }
       {
         key = "[c";
@@ -91,6 +107,50 @@
         action = "Nzzzv";
         options.desc = "Find previous match";
       }
+      {
+        key = "<c-j>";
+        action = "<c-w><c-j>";
+        options.desc = "Navigate down";
+      }
+      {
+        key = "<c-k>";
+        action = "<c-w><c-k>";
+        options.desc = "Navigate up";
+      }
+      {
+        key = "<c-l>";
+        action = "<c-w><c-l>";
+        options.desc = "Navigate right";
+      }
+      {
+        key = "<c-h>";
+        action = "<c-w><c-h>";
+        options.desc = "Navigate left";
+      }
+      {
+        key = "<m-h>";
+        action = "<c-w>5<";
+        options.desc = "Shrink split";
+        options.silent = true;
+      }
+      {
+        key = "<m-l>";
+        action = "<c-w>5>";
+        options.desc = "Widen split";
+        options.silent = true;
+      }
+      {
+        key = "<m-k>";
+        action = "<c-w>+";
+        options.desc = "Make split taller";
+        options.silent = true;
+      }
+      {
+        key = "<m-j>";
+        action = "<c-w>-";
+        options.desc = "Make split shorter";
+        options.silent = true;
+      }
 
       # Telescope
       {
@@ -103,10 +163,49 @@
         action = "<cmd>Telescope live_grep<cr>";
         options.desc = "Live grep";
       }
+
+      # Refactoring
       {
-        key = "<leader>tp";
-        action = "<cmd>Telescope projects<cr>";
-        options.desc = "Projects";
+        mode = "x";
+        key = "<leader>re";
+        action = "<cmd>Refactor extract <cr>";
+        options.desc = "Extract to function";
+      }
+      {
+        mode = "x";
+        key = "<leader>rf";
+        action = "<cmd>Refactor extract_to_file <cr>";
+        options.desc = "Extract to file";
+      }
+      {
+        mode = "x";
+        key = "<leader>rv";
+        action = "<cmd>Refactor extract_var <cr>";
+        options.desc = "Extract to var";
+      }
+      {
+        mode = [ "n" "x" ];
+        key = "<leader>ri";
+        action = "<cmd>Refactor inline_var<cr>";
+        options.desc = "Extract to inline var";
+      }
+      {
+        mode = "n";
+        key = "<leader>rI";
+        action = "<cmd>Refactor inline_func<cr>";
+        options.desc = "Extract to inline var";
+      }
+      {
+        mode = "n";
+        key = "<leader>rb";
+        action = "<cmd>Refactor extract_block<cr>";
+        options.desc = "Extract block";
+      }
+      {
+        mode = "n";
+        key = "<leader>rbf";
+        action = "<cmd>Refactor extract_block_to_file<cr>";
+        options.desc = "Extract block to file";
       }
 
       # LSP
@@ -176,10 +275,75 @@
         options.desc = "Format";
         lua = true;
       }
+      {
+        key = "<leader>h";
+        action = "function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end";
+        options.desc = "Toggle inlay hints";
+        lua = true;
+      }
+      {
+        key = "<leader>[d";
+        action = "function() vim.diagnostic.goto_prev() end";
+        options.desc = "Goto previous diagnostic";
+        lua = true;
+      }
+      {
+        key = "<leader>]d";
+        action = "function() vim.diagnostic.goto_next() end";
+        options.desc = "Goto next diagnostic";
+        lua = true;
+      }
+
+      # Luasnip
+      {
+        mode = [ "i" "s" ];
+        key = "<c-k>";
+        action = ''
+          function()
+            local ls = require("luasnip")
+            if ls.expand_or_jumpable() then
+              ls.expand_or_jump()
+            end
+          end
+        '';
+        options.desc = "Expand or jump";
+        lua = true;
+      }
+      {
+        mode = [ "i" "s" ];
+        key = "<c-j>";
+        action = ''
+          function()
+            local ls = require("luasnip")
+            if ls.jumpable(-1) then
+              ls.jump(-1)
+            end
+          end
+        '';
+        options.desc = "Jump back";
+        lua = true;
+      }
+
+      # Utils
+      {
+        key = "<cr>";
+        action = ''
+          function()
+            if vim.opt.hlsearch:get() then
+              vim.cmd.nohl()
+              return ""
+            else
+              return "<CR>"
+            end
+          end
+        '';
+        options.desc = "Enter";
+        lua = true;
+      }
 
       # Harpoon
       {
-        key = "<leader>ht";
+        key = "<leader>hg";
         action = "function() require('harpoon.mark').add_file() end";
         options.desc = "Mark file";
         lua = true;
@@ -234,7 +398,8 @@
           astro.enable = true;
           tailwindcss.enable = true;
           texlab.enable = true;
-          rnix-lsp.enable = true;
+          # rnix-lsp.enable = true;
+          nixd.enable = true;
           hls.enable = true;
           lua-ls.enable = true;
           marksman.enable = true;
@@ -242,24 +407,39 @@
       };
       cmp = {
         enable = true;
-        # autoEnableSources = true;
-        settings.sources = [
-          { name = "nvim_lsp"; }
-          { name = "luasnip"; }
-          { name = "buffer"; }
-          { name = "path"; }
-        ];
+        autoEnableSources = true;
+        settings = {
+          sources = [
+            { name = "nvim_lsp"; }
+            { name = "luasnip"; }
+            { name = "buffer"; }
+            { name = "path"; }
+            { name = "latex-symbols"; }
+          ];
+          mapping = {
+            __raw = ''
+              cmp.mapping.preset.insert({
+                ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+                ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                ['<C-Space>'] = cmp.mapping.complete(),
+                ['<C-e>'] = cmp.mapping.abort(),
+                ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), {'i', 'c'}),
+                ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), {'i', 'c'}), 
+                ["<C-y>"] = cmp.mapping(cmp.mapping.confirm({ select = true }, {'i', 'c'}))
+              })
+            '';
+          };
+          snippet.expand = "luasnip";
+        };
+        filetype = {
+          gitcommit = {
+            sources = [
+              { name = "git"; }
+            ];
+          };
+        };
       };
-      cmp-nvim-lsp.enable = true;
-      cmp-buffer.enable = true;
-      cmp-path.enable = true;
-      cmp_luasnip.enable = true;
-      # cmp-path.enable = true;
-      cmp-cmdline.enable = true;
-      cmp-latex-symbols.enable = true;
-      telescope = {
-        enable = true;
-      };
+      telescope.enable = true;
       oil = {
         enable = true;
         settings.delete_to_trash = true;
@@ -269,10 +449,16 @@
         enable = true;
         maxLines = 5;
       };
-      treesitter-textobjects = {
+      treesitter-textobjects.enable = true;
+      refactoring.enable = true;
+      luasnip = {
         enable = true;
+        fromLua = [
+          {
+            paths = ./lua/luasnip.lua;
+          }
+        ];
       };
-      luasnip.enable = true;
       harpoon.enable = true;
       gitsigns = {
         enable = true;
@@ -283,20 +469,14 @@
       # ts-autotag.enable = true;
       surround.enable = true;
       # nvim-autopairs.enable = true;
-      # project-nvim.enable = true;
       which-key.enable = true;
       todo-comments.enable = true;
       comment.enable = true;
+      emmet.enable = true;
+      # gitignore.enable = true;
+      # lazygit.enable = true;
 
       # Writing
-      vimtex = {
-        enable = true;
-        settings = {
-          view_method = "zathura";
-          compiler_method = "tectonic";
-          compiler_tectonic.out_dir = "./build/";
-        };
-      };
       goyo = {
         enable = true;
         settings = {
@@ -307,9 +487,7 @@
       markdown-preview.enable = true;
 
       # Visual
-      nvim-colorizer = {
-        enable = true;
-      };
+      nvim-colorizer.enable = true;
     };
     extraPlugins = with pkgs.vimPlugins; [
       own-deadcolumn-nvim
@@ -341,7 +519,7 @@
         local linecol = " %l:%c"
 
         return string.format(
-          "%s %s %s%s%s%s%s%s%s%s%s",
+          "%s%s%s%s%s%s%s%s%s%s%s",
           set_color_1,
           branch,
           set_color_2,
@@ -358,6 +536,11 @@
 
       vim.opt.statusline = statusline()
     '';
+    # files = {
+    #   "ftplugin/nix.lua" = {
+    #     options = {};
+    #   };
+    # };
   };
   home.file.".config/nvim/ftplugin".source = ./ftplugin;
 }

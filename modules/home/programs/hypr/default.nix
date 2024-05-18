@@ -7,6 +7,8 @@ let
     ${pkgs.swayidle}/bin/swayidle -w timeout 300 'swaylock -f' timeout 360 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' &
     ${pkgs.swww}/bin/swww init &
     ${pkgs.swww}/bin/swww img ${config.wallpaper} &
+    ${pkgs.wl-clipboard}/bin/wl-paste --type text --watch ${pkgs.cliphist}/bin/cliphist store &
+    ${pkgs.wl-clipboard}/bin/wl-paste --type image --watch ${pkgs.cliphist}/bin/cliphist store &
   '';
 in
 {
@@ -110,6 +112,8 @@ in
           "$mod SHIFT, p, exec, rofi-pass"
           "$mod SHIFT, c, exec, hyprpicker --format=hex -a"
           "$mod SHIFT, s, exec, grimblast copy area"
+          "$mod SHIFT, v, exec, cliphist list | rofi -dmenu -p cliphist | cliphist decode | wl-copy"
+          "$mod CTRL SHIFT, v, exec, cliphist wipe"
           ", Print, exec, grimblast copysave output ~/Pictures/Screenshots/\"\`date +\"%Y-%m-%d-%H%M%S\"\`\".png"
           "$mod, v, togglefloating"
           "$mod, u, focusurgentorlast"
@@ -126,11 +130,20 @@ in
           ", XF86AudioNext, exec, playerctl next"
           ", XF86AudioPrev, exec, playerctl previous"
 
-          # Focus with h,j,k,l"
+          # Windows
           "$mod, h, movefocus, l"
           "$mod, l, movefocus, r"
           "$mod, k, movefocus, u"
           "$mod, j, movefocus, d"
+          "$mod SHIFT, h, movewindow, l"
+          "$mod SHIFT, l, movewindow, r"
+          "$mod SHIFT, k, movewindow, u"
+          "$mod SHIFT, j, movewindow, d"
+          "$mod CTRL SHIFT, h, resizeactive, -50 0"
+          "$mod CTRL SHIFT, l, resizeactive, 50 0"
+          "$mod CTRL SHIFT, k, resizeactive, 0 -50"
+          "$mod CTRL SHIFT, j, resizeactive, 0 50"
+          "$mod CTRL SHIFT, r, resizeactive, exact 50% 50%"
 
           # Scratchpad
           "$mod, 0, togglespecialworkspace, magic"

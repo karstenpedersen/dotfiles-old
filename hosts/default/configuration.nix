@@ -79,6 +79,7 @@
     neovim
     git
     gnumake
+    just
     nh
     wget
   ];
