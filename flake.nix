@@ -9,6 +9,7 @@
     };
 
     nix-colors.url = "github:misterio77/nix-colors";
+    stylix.url = "github:danth/stylix";
     hyprland.url = "github:hyprwm/Hyprland";
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
     firefox-addons = {
@@ -37,6 +38,7 @@
             utils.nixosModules.autoGenFromInputs
             inputs.home-manager.nixosModules.default
             inputs.hyprland.nixosModules.default
+            inputs.stylix.nixosModules.stylix
           ];
           specialArgs = { inherit inputs; };
         };

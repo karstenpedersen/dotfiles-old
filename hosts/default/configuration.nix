@@ -71,6 +71,7 @@
 
   # Android
   programs.adb.enable = true;
+  stylix.image = "./wallpaper.png";
 
   # Packages
   nixpkgs.config.allowUnfree = true;
