@@ -71,7 +71,11 @@
 
   # Android
   programs.adb.enable = true;
-  stylix.image = "./wallpaper.png";
+  stylix.image = ./wallpaper.png;
+  # pkgs.fetchurl {
+  #   url = "https://cdnb.artstation.com/p/assets/images/images/016/252/301/4k/grady-frederick-atlantis-garbageman-v2.jpg";
+  #   sha256 = "tAX6qTm1/7v/auvCHrmRswJsScNieSWpXV6TCBhRP7Y=";
+  # };
 
   # Packages
   nixpkgs.config.allowUnfree = true;
