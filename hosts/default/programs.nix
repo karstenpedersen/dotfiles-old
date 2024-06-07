@@ -63,6 +63,9 @@
     xxd
     openssl
 
+    # Octave
+    octaveFull
+
     # Android
     android-tools
 
@@ -80,6 +83,8 @@
     libsForQt5.kdenlive
     libsForQt5.dragon
     keepassxc
+    kapow
+    planner
 
     # Games
     steam

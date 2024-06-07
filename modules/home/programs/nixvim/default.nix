@@ -324,6 +324,44 @@
         lua = true;
       }
 
+      # Trouble
+      {
+        mode = "n";
+        key = "<leader>xx";
+        action = "<cmd>Trouble diagnostic toggle<cr>";
+        options.desc = "Diagnostics (Trouble)";
+      }
+      {
+        mode = "n";
+        key = "<leader>xX";
+        action = "<cmd>Trouble diagnostic toggle filter.buf=0<cr>";
+        options.desc = "Buffer Diagnostics (Trouble)";
+      }
+      {
+        mode = "n";
+        key = "<leader>cs";
+        action = "<cmd>Trouble symbols toggle focus=false<cr>";
+        options.desc = "Symbols (Trouble)";
+      }
+      {
+        mode = "n";
+        key = "<leader>cl";
+        action = "<cmd>Trouble lsp toggle focus=false win.position=right<cr>";
+        options.desc = "LSP Definitions / references / ... (Trouble)";
+      }
+      {
+        mode = "n";
+        key = "<leader>xL";
+        action = "<cmd>Trouble toclist toggle<cr>";
+        options.desc = "Location List (Trouble)";
+      }
+      {
+        mode = "n";
+        key = "<leader>xQ";
+        action = "<cmd>Trouble qflist toggle<cr>";
+        options.desc = "Quickfix List (Trouble)";
+      }
+
       # Utils
       {
         key = "<cr>";
@@ -440,6 +478,7 @@
         };
       };
       telescope.enable = true;
+      trouble.enable = true;
       oil = {
         enable = true;
         settings.delete_to_trash = true;
@@ -466,15 +505,14 @@
           current_line_blame = true;
         };
       };
-      # ts-autotag.enable = true;
+      ts-autotag.enable = true;
       surround.enable = true;
-      # nvim-autopairs.enable = true;
       which-key.enable = true;
       todo-comments.enable = true;
       comment.enable = true;
       emmet.enable = true;
-      # gitignore.enable = true;
-      # lazygit.enable = true;
+      undotree.enable = true;
+      diffview.enable = true;
 
       # Writing
       goyo = {
