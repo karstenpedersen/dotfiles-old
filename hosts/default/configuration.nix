@@ -39,9 +39,10 @@
     xkb.layout = "us,dk";
     xkb.variant = "";
     xkb.options = "grp:alt_shift_toggle,caps:escape";
-    libinput.touchpad.naturalScrolling = true;
+    # videoDrivers = [ "nvidia" ];
   };
   services.displayManager.sddm.enable = true;
+  services.libinput.touchpad.naturalScrolling = true;
 
   # Keys
   services.gnome.gnome-keyring.enable = true;
@@ -81,6 +82,7 @@
     gnumake
     just
     nh
+    fh
     wget
   ];
 
@@ -161,9 +163,26 @@
 
   # Nvidia
   hardware = {
-    opengl.enable = true;
-    opengl.driSupport32Bit = true;
-    nvidia.modesetting.enable = true;
+    opengl = {
+      enable = true;
+      # driSupport = true;
+      driSupport32Bit = true;
+    };
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement = {
+        enable = true;
+        finegrained = true;
+      };
+      prime = {
+        # offload.enable = true;
+        amdgpuBusId = "PCI:1:0:0";
+        nvidiaBusId = "PCI:7:0:0";
+      };
+      open = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      # nvidiaSettings = true;
+    };
   };
 
   # Eduroam

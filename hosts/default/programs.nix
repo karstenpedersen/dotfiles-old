@@ -29,6 +29,7 @@
     # libnotify
     man-pages
     pass
+    sops
     gnupg
     xdragon
     pistol

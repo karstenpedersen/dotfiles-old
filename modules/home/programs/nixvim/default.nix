@@ -1,7 +1,6 @@
 { config, pkgs, inputs, lib, ... }:
 
 {
-  # Add plugins from github
   nixpkgs = {
     overlays = [
       (final: prev: {
@@ -65,7 +64,7 @@
     };
     # colorschemes.base16 = {
     #   enable = true;
-    #   colorscheme = builtins.mapAttrs (name: value: "#${value}") config.colorScheme.colors;
+    #   colorscheme = builtins.mapAttrs (name: value: "#${value}") config.colorScheme.palette;
     # };
     colorschemes.catppuccin.enable = true;
     keymaps = [
@@ -79,12 +78,11 @@
         action = "<cmd>!make<cr>";
         options.desc = "Make";
       }
-      {
-        key = "[c";
-        action = "function() require('treesitter-context').go_to_context(vim.v.count1) end";
-        options.desc = "Goto implementation";
-        lua = true;
-      }
+      # {
+      #   key = "[c";
+      #   action.action = helpers.mkRaw "function() require('treesitter-context').go_to_context(vim.v.count1) end";
+      #   options.desc = "Goto implementation";
+      # }
 
       # Overrides
       {
@@ -209,120 +207,104 @@
       }
 
       # LSP
-      {
-        key = "<leader>r";
-        action = "function() vim.lsp.buf.rename() end";
-        options.desc = "Rename";
-        lua = true;
-      }
-      {
-        key = "<leader>a";
-        action = "function() vim.lsp.buf.code_action() end";
-        options.desc = "Code action";
-        lua = true;
-      }
-      {
-        key = "gd";
-        action = "function() vim.lsp.buf.definition() end";
-        options.desc = "Goto definition";
-        lua = true;
-      }
-      {
-        key = "gD";
-        action = "function() vim.lsp.buf.declaration() end";
-        options.desc = "Goto declaration";
-        lua = true;
-      }
-      {
-        key = "gI";
-        action = "function() vim.lsp.buf.implementation() end";
-        options.desc = "Goto implementation";
-        lua = true;
-      }
-      {
-        key = "<leader>D";
-        action = "function() vim.lsp.buf.type_definition() end";
-        options.desc = "Type definition";
-        lua = true;
-      }
-      {
-        key = "gr";
-        action = "function() require('telescope.builtin').lsp_references() end";
-        options.desc = "Goto references";
-        lua = true;
-      }
-      {
-        key = "<leader>s";
-        action = "function() require('telescope.builtin').lsp_document_symbols() end";
-        options.desc = "Document symbols";
-        lua = true;
-      }
-      {
-        key = "<leader>S";
-        action = "function() require('telescope.builtin').lsp_dynamic_workspace_symbols() end";
-        options.desc = "Dynamic workspace symbols";
-        lua = true;
-      }
-      {
-        key = "K";
-        action = "function() vim.lsp.buf.hover() end";
-        options.desc = "Hover";
-        lua = true;
-      }
-      {
-        key = "<leader>f";
-        action = "function() vim.lsp.buf.format() end";
-        options.desc = "Format";
-        lua = true;
-      }
-      {
-        key = "<leader>h";
-        action = "function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end";
-        options.desc = "Toggle inlay hints";
-        lua = true;
-      }
-      {
-        key = "<leader>[d";
-        action = "function() vim.diagnostic.goto_prev() end";
-        options.desc = "Goto previous diagnostic";
-        lua = true;
-      }
-      {
-        key = "<leader>]d";
-        action = "function() vim.diagnostic.goto_next() end";
-        options.desc = "Goto next diagnostic";
-        lua = true;
-      }
+      # {
+      #   key = "<leader>r";
+      #   action = helpers.mkRaw "function() vim.lsp.buf.rename() end";
+      #   options.desc = "Rename";
+      # }
+      # {
+      #   key = "<leader>a";
+      #   action = helpers.mkRaw "function() vim.lsp.buf.code_action() end";
+      #   options.desc = "Code action";
+      # }
+      # {
+      #   key = "gd";
+      #   action = helpers.mkRaw "function() vim.lsp.buf.definition() end";
+      #   options.desc = "Goto definition";
+      # }
+      # {
+      #   key = "gD";
+      #   action = helpers.mkRaw "function() vim.lsp.buf.declaration() end";
+      #   options.desc = "Goto declaration";
+      # }
+      # {
+      #   key = "gI";
+      #   action = helpers.mkRaw "function() vim.lsp.buf.implementation() end";
+      #   options.desc = "Goto implementation";
+      # }
+      # {
+      #   key = "<leader>D";
+      #   action = helpers.mkRaw "function() vim.lsp.buf.type_definition() end";
+      #   options.desc = "Type definition";
+      # }
+      # {
+      #   key = "gr";
+      #   action = helpers.mkRaw "function() require('telescope.builtin').lsp_references() end";
+      #   options.desc = "Goto references";
+      # }
+      # {
+      #   key = "<leader>s";
+      #   action = helpers.mkRaw "function() require('telescope.builtin').lsp_document_symbols() end";
+      #   options.desc = "Document symbols";
+      # }
+      # {
+      #   key = "<leader>S";
+      #   action = helpers.mkRaw "function() require('telescope.builtin').lsp_dynamic_workspace_symbols() end";
+      #   options.desc = "Dynamic workspace symbols";
+      # }
+      # {
+      #   key = "K";
+      #   action = helpers.mkRaw "function() vim.lsp.buf.hover() end";
+      #   options.desc = "Hover";
+      # }
+      # {
+      #   key = "<leader>f";
+      #   action = helpers.mkRaw "function() vim.lsp.buf.format() end";
+      #   options.desc = "Format";
+      # }
+      # {
+      #   key = "<leader>h";
+      #   action = helpers.mkRaw "function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end";
+      #   options.desc = "Toggle inlay hints";
+      # }
+      # {
+      #   key = "<leader>[d";
+      #   action = helpers.mkRaw "function() vim.diagnostic.goto_prev() end";
+      #   options.desc = "Goto previous diagnostic";
+      # }
+      # {
+      #   key = "<leader>]d";
+      #   action = helpers.mkRaw "function() vim.diagnostic.goto_next() end";
+      #   options.desc = "Goto next diagnostic";
+      # }
 
       # Luasnip
-      {
-        mode = [ "i" "s" ];
-        key = "<c-k>";
-        action = ''
-          function()
-            local ls = require("luasnip")
-            if ls.expand_or_jumpable() then
-              ls.expand_or_jump()
-            end
-          end
-        '';
-        options.desc = "Expand or jump";
-        lua = true;
-      }
-      {
-        mode = [ "i" "s" ];
-        key = "<c-j>";
-        action = ''
-          function()
-            local ls = require("luasnip")
-            if ls.jumpable(-1) then
-              ls.jump(-1)
-            end
-          end
-        '';
-        options.desc = "Jump back";
-        lua = true;
-      }
+      # {
+      #   mode = [ "i" "s" ];
+      #   key = "<c-k>";
+      #   action = helpers.mkRaw ''
+      #     function()
+      #       local ls = require("luasnip")
+      #       if ls.expand_or_jumpable() then
+      #         ls.expand_or_jump()
+      #       end
+      #     end
+      #   '';
+      #   options.desc = "Expand or jump";
+      # }
+      # {
+      #   mode = [ "i" "s" ];
+      #   key = "<c-j>";
+      #   action = helpers.mkRaw ''
+      #     function()
+      #       local ls = require("luasnip")
+      #       if ls.jumpable(-1) then
+      #         ls.jump(-1)
+      #       end
+      #     end
+      #   '';
+      #   options.desc = "Jump back";
+      # }
 
       # Trouble
       {
@@ -363,52 +345,49 @@
       }
 
       # Utils
-      {
-        key = "<cr>";
-        action = ''
-          function()
-            if vim.opt.hlsearch:get() then
-              vim.cmd.nohl()
-              return ""
-            else
-              return "<CR>"
-            end
-          end
-        '';
-        options.desc = "Enter";
-        lua = true;
-      }
+      # {
+      #   key = "<cr>";
+      #   action = helpers.mkRaw ''
+      #     function()
+      #       if vim.opt.hlsearch:get() then
+      #         vim.cmd.nohl()
+      #         return ""
+      #       else
+      #         return "<CR>"
+      #       end
+      #     end
+      #   '';
+      #   options.desc = "Enter";
+      # }
 
       # Harpoon
-      {
-        key = "<leader>hg";
-        action = "function() require('harpoon.mark').add_file() end";
-        options.desc = "Mark file";
-        lua = true;
-      }
-      {
-        key = "<leader>th";
-        action = "function() require('harpoon.ui').toggle_quick_menu() end";
-        options.desc = "Harpoon";
-        lua = true;
-      }
-    ] ++
-    (
-      let
-        keys = [ "a" "s" "d" "f" ];
-      in
-      (lib.lists.imap1
-        (
-          i: key:
-            {
-              key = "<leader>h${key}";
-              action = "function() require('harpoon.ui').nav_file(${builtins.toString i}) end";
-              options.desc = "Goto mark ${builtins.toString i}";
-              lua = true;
-            }
-        )
-        keys)
-    );
+      # {
+      #   key = "<leader>hg";
+      #   action = helpers.mkRaw "function() require('harpoon.mark').add_file() end";
+      #   options.desc = "Mark file";
+      # }
+      # {
+      #   key = "<leader>th";
+      #   action = helpers.mkRaw "function() require('harpoon.ui').toggle_quick_menu() end";
+      #   options.desc = "Harpoon";
+      # }
+    ]; 
+    # ++
+    # (
+    #   let
+    #     keys = [ "a" "s" "d" "f" ];
+    #   in
+    #   (lib.lists.imap1
+    #     (
+    #       i: key:
+    #         {
+    #           key = "<leader>h${key}";
+    #           action = helpers.mkRaw "function() require('harpoon.ui').nav_file(${builtins.toString i}) end";
+    #           options.desc = "Goto mark ${builtins.toString i}";
+    #         }
+    #     )
+    #     keys)
+    # );
     plugins = {
       lsp = {
         enable = true;
@@ -430,7 +409,7 @@
           gopls.enable = true;
           templ.enable = true;
           sqls.enable = true;
-          emmet_ls.enable = true;
+          emmet-ls.enable = true;
           eslint.enable = true;
           svelte.enable = true;
           astro.enable = true;
@@ -486,7 +465,7 @@
       treesitter.enable = true;
       treesitter-context = {
         enable = true;
-        maxLines = 5;
+        settings.max-lines = 5;
       };
       treesitter-textobjects.enable = true;
       refactoring.enable = true;
@@ -531,8 +510,8 @@
       own-deadcolumn-nvim
     ];
     extraConfigLua = ''
-      vim.cmd([[highlight StatusLine guifg=#${config.colorScheme.colors.base03} guibg=#${config.colorScheme.colors.base01}]])
-      vim.cmd([[highlight StatusLineNC guifg=#${config.colorScheme.colors.base03} guibg=#${config.colorScheme.colors.base01}]])
+      vim.cmd([[highlight StatusLine guifg=#${config.colorScheme.palette.base03} guibg=#${config.colorScheme.palette.base01}]])
+      vim.cmd([[highlight StatusLineNC guifg=#${config.colorScheme.palette.base03} guibg=#${config.colorScheme.palette.base01}]])
 
       local function git_branch()
         local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")

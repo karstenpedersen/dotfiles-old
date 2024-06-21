@@ -9,7 +9,10 @@
     };
 
     nix-colors.url = "github:misterio77/nix-colors";
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland = {
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+      # submodules = true;
+    };
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
