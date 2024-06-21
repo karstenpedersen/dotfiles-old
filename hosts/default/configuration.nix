@@ -8,7 +8,7 @@
   ];
 
   # Hyprland
-  programs.hyprland.enable = true;
+  # programs.hyprland.enable = true;
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -40,8 +40,19 @@
     xkb.variant = "";
     xkb.options = "grp:alt_shift_toggle,caps:escape";
     # videoDrivers = [ "nvidia" ];
+    displayManager = {
+      sddm.enable = true;
+      defaultSession = "none+awesome";
+    };
+    windowManager.awesome = {
+      enable = true;
+      luaModules = with pkgs.luaPackages; [
+        luarocks
+        luadbi-mysql
+      ];
+    };
   };
-  services.displayManager.sddm.enable = true;
+  # services.displayManager.sddm.enable = true;
   services.libinput.touchpad.naturalScrolling = true;
 
   # Keys

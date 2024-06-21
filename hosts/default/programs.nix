@@ -2,12 +2,13 @@
 
 {
   imports = [
-    ../../modules/home/programs/hypr
+    # ../../modules/home/programs/hypr
     ../../modules/home/programs/lf
     ../../modules/home/programs/git
     ../../modules/home/programs/bash
     ../../modules/home/programs/starship
     ../../modules/home/programs/kitty
+    ../../modules/home/programs/alacritty
     ../../modules/home/programs/nixvim
     ../../modules/home/programs/btop
     ../../modules/home/programs/vscode
