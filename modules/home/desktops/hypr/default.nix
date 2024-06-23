@@ -12,9 +12,19 @@ let
   '';
 in
 {
+  imports = [
+    ./rofi
+  ];
+
+  home.packages = with pkgs; [
+    swayidle
+    hyprpicker
+    grimblast
+  ];
+
   options = {
     wallpaper = lib.mkOption {
-      default = ./assets/wallpaper.png;
+      default = ../common/wallpaper.png;
       type = lib.types.path;
       description = ''
         Path to your wallpaper

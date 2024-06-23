@@ -2,11 +2,11 @@
 
 {
   imports = [
-    # inputs.hyprland.homeManagerModules.default
     inputs.nix-colors.homeManagerModules.default
     inputs.nixvim.homeManagerModules.nixvim
+    ../../modules/home/desktops/awesome
     ./programs.nix
-    ./services.nix
+    # ./services.nix
   ];
 
   # Home
@@ -18,7 +18,7 @@
     EDITOR = "nvim";
     VISUAL = "codium";
     OPENER = "codium";
-    TERMINAL = "kitty";
+    TERMINAL = lib.mkForce "alacritty";
     PAGER = "less";
   };
 

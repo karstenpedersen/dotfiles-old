@@ -1,35 +1,46 @@
-{ pkgs, config, ... }:
+{ ... }:
 
 {
   services.espanso = {
     enable = true;
-    package = pkgs.espanso-wayland;
     matches = {
       base = {
         matches = [
           {
-            trigger = ";date";
+            trigger = ";date;";
             replace = "{{currentdate}}";
+          }
+          {
+            trigger = ";time;";
+            replace = "{{currenttime}}";
           }
         ];
       };
       me = {
         matches = [
           {
-            trigger = ";m.n";
+            trigger = ";m.n;";
+            replace = "Karsten";
+          }
+          {
+            trigger = ";m.nn;";
             replace = "Karsten Pedersen";
           }
           {
-            trigger = ";m.fn";
+            trigger = ";m.fn;";
             replace = "Karsten F. Pedersen";
           }
           {
-            trigger = ";m.ffn";
+            trigger = ";m.ffn;";
             replace = "Karsten Finderup Pedersen";
           }
           {
-            trigger = ";m.e";
+            trigger = ";m.e;";
             replace = "karstenfp.all@gmail.com";
+          }
+          {
+            trigger = ";br;";
+            replace = "Best Regards,\nKarsten Pedersen";
           }
         ];
       };

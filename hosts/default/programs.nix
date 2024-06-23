@@ -1,75 +1,30 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
-    # ../../modules/home/programs/hypr
-    ../../modules/home/programs/lf
-    ../../modules/home/programs/git
-    ../../modules/home/programs/bash
-    ../../modules/home/programs/starship
-    ../../modules/home/programs/kitty
     ../../modules/home/programs/alacritty
-    ../../modules/home/programs/nixvim
-    ../../modules/home/programs/btop
     ../../modules/home/programs/vscode
-    ../../modules/home/programs/rofi
     ../../modules/home/programs/firefox
-    ../../modules/home/programs/waybar
     ../../modules/home/programs/zathura
-    ../../modules/home/programs/swaylock
-    ../../modules/home/programs/zoxide
-    ../../modules/home/programs/lazygit
-    ../../modules/home/programs/bat
-    ../../modules/home/programs/direnv
-    ../../modules/home/programs/kakoune
-    ../../modules/home/programs/fzf
+    ../../modules/home/programs/bash
+    ../../modules/home/programs/cli.nix
   ];
 
   # Packages
   home.packages = with pkgs; [
-    # libnotify
-    man-pages
     pass
     sops
-    gnupg
     xdragon
     pistol
-    ripgrep
-    eza
-    fd
-    file
-    gnused
-    jq
-    gawk
-    pstree
-    git-ignore
-    hyprpicker
-    wl-clipboard
-    cliphist
     pipewire
     wireplumber
     polkit-kde-agent
     pamixer
     light
     playerctl
-    grimblast
-    wtype
-    swayidle
-    unzip
-    zip
-    gnutar
-    pdftk
-    pandoc
-    bpftrace
-    trashy
-    xxd
-    openssl
 
     # Octave
     octaveFull
-
-    # Android
-    android-tools
 
     # Applications
     zotero
@@ -88,13 +43,15 @@
     kapow
     planner
 
+    logiops
+
     # Games
     steam
     prismlauncher
 
     # Gamedev
     godot_4
-    aseprite
+    # aseprite
   ];
 
   nixpkgs.config.allowUnfree = true;

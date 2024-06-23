@@ -14,6 +14,7 @@
     ];
   };
 
+  home.sessionVariables.EDITOR = lib.mkDefault "nvim";
   programs.nixvim = {
     enable = true;
     globals.mapleader = " ";

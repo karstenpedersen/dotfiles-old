@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ../../modules/nixos/main-user.nix
     inputs.home-manager.nixosModules.default
+    ../../modules/nixos/devices/MXVerticalAdvancedErgonomicMouse
   ];
 
   # Hyprland
@@ -39,7 +40,6 @@
     xkb.layout = "us,dk";
     xkb.variant = "";
     xkb.options = "grp:alt_shift_toggle,caps:escape";
-    # videoDrivers = [ "nvidia" ];
     displayManager = {
       sddm.enable = true;
       defaultSession = "none+awesome";
@@ -51,6 +51,7 @@
         luadbi-mysql
       ];
     };
+    # videoDrivers = [ "nvidia" ];
   };
   # services.displayManager.sddm.enable = true;
   services.libinput.touchpad.naturalScrolling = true;
