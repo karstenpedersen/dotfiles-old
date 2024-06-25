@@ -4,6 +4,7 @@
   imports = [
     ./bat
     ./lf
+    ./yazi
     ./fzf
     ./btop
     ./git
@@ -13,7 +14,7 @@
     ./starship
     ./direnv
     ./nixvim
-    ./nix-index
+    # ./nix-index
     ./cheat
   ];
 

@@ -18,7 +18,7 @@
     EDITOR = "nvim";
     VISUAL = "codium";
     OPENER = "codium";
-    TERMINAL = lib.mkForce "alacritty";
+    TERM = "alacritty";
     PAGER = "less";
   };
 

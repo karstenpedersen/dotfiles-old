@@ -1,7 +1,6 @@
 { lib, ... }:
 
 {
-  home.sessionVariables.TERMINAL = lib.mkDefault "alacritty";
   programs.alacritty = {
     enable = true;
     settings = {
