@@ -20,6 +20,7 @@
     OPENER = "codium";
     TERM = "alacritty";
     PAGER = "less";
+    BROWSER = "chromium";
   };
 
   # Theme

@@ -176,11 +176,12 @@ globalkeys = gears.table.join(
     -- Standard program
     awful.key({ settings.modkey,           }, "Return", function () awful.spawn(settings.terminal) end,
               {description = "open a terminal", group = "launcher"}),
+    awful.key({ settings.modkey, "Shift"   }, "Return", function () awful.spawn(settings.browser) end,
+              {description = "open a browser", group = "launcher"}),
     awful.key({ settings.modkey,           }, "d", function () awful.spawn(settings.launcher) end,
               {description = "open launcher", group = "launcher"}),
     awful.key({ settings.modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
-
     awful.key({ settings.modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
     awful.key({ settings.modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,
@@ -294,7 +295,11 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
                      screen = awful.screen.preferred,
-                     placement = awful.placement.no_overlap+awful.placement.no_offscreen
+                     placement = awful.placement.no_overlap+awful.placement.no_offscreen,
+                     maximized_vertical   = false,
+                     maximized_horizontal = false,
+                     floating = false,
+                     maximized = false
      }
     },
 
@@ -334,10 +339,10 @@ awful.rules.rules = {
       }, properties = { titlebars_enabled = false }
     },
 
-    { rule = { title = "Webcord" },
+    { rule = { name = "WebCord" },
       properties = { screen = 1, tag = "8" } },
-    { rule = { title = "Spotify" },
-      properties = { screen = 1, tag = "9" } },
+    { rule = { class = "Spotify" },
+      properties = { screen = 1, tag = "9" } }
 }
 -- }}}
 

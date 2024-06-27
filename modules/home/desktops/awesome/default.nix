@@ -12,7 +12,7 @@
   home.file = {
     ".config/awesome/settings.lua".text = ''
       local settings = {}
-      settings.terminal = os.getenv("TERMINAL") or "xterm"
+      settings.terminal = os.getenv("TERM") or "xterm"
       settings.browser = os.getenv("BROWSER") or "firefox"
       settings.editor = os.getenv("EDITOR") or "nano"
       settings.editor_cmd = settings.terminal .. " -e " .. settings.editor

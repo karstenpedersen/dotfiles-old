@@ -35,26 +35,27 @@
   };
 
   # XServer 
-  services.xserver = {
-    enable = true;
-    xkb.layout = "us,dk";
-    xkb.variant = "";
-    xkb.options = "grp:alt_shift_toggle,caps:escape";
-    displayManager = {
-      sddm.enable = true;
-      defaultSession = "none+awesome";
-    };
-    windowManager.awesome = {
+  services = {
+    xserver = {
       enable = true;
-      luaModules = with pkgs.luaPackages; [
-        luarocks
-        luadbi-mysql
-      ];
+      xkb.layout = "us,dk";
+      xkb.variant = "";
+      xkb.options = "grp:alt_shift_toggle,caps:escape";
+      displayManager = {
+        defaultSession = "none+awesome";
+      };
+      windowManager.awesome = {
+        enable = true;
+        luaModules = with pkgs.luaPackages; [
+          luarocks
+          luadbi-mysql
+        ];
+      };
+      # videoDrivers = [ "nvidia" ];
     };
-    # videoDrivers = [ "nvidia" ];
+    displayManager.sddm.enable = true;
+    libinput.touchpad.naturalScrolling = true;
   };
-  # services.displayManager.sddm.enable = true;
-  services.libinput.touchpad.naturalScrolling = true;
 
   # Keys
   services.gnome.gnome-keyring.enable = true;
@@ -80,6 +81,7 @@
     users = {
       "karsten" = import ./home.nix;
     };
+    backupFileExtension = "hm-backup";
   };
 
   # Android
@@ -175,10 +177,9 @@
 
   # Nvidia
   hardware = {
-    opengl = {
+    graphics = {
       enable = true;
-      # driSupport = true;
-      driSupport32Bit = true;
+      enable32Bit = true;
     };
     nvidia = {
       modesetting.enable = true;

@@ -4,7 +4,7 @@
   imports = [
     ../../modules/home/programs/alacritty
     ../../modules/home/programs/vscode
-    ../../modules/home/programs/firefox
+    # ../../modules/home/programs/firefox
     ../../modules/home/programs/zathura
     ../../modules/home/programs/bash
     ../../modules/home/programs/cli.nix

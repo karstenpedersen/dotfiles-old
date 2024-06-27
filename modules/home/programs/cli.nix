@@ -3,7 +3,6 @@
 {
   imports = [
     ./bat
-    ./lf
     ./yazi
     ./fzf
     ./btop
@@ -19,6 +18,7 @@
   ];
 
   home.packages = with pkgs; [
+    micro
     man-pages
     eza
     ripgrep
