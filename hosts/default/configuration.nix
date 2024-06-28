@@ -38,9 +38,11 @@
   services = {
     xserver = {
       enable = true;
-      xkb.layout = "us,dk";
-      xkb.variant = "";
-      xkb.options = "grp:alt_shift_toggle,caps:escape";
+      xkb = {
+        layout = "us,dk";
+        variant = "";
+        options = "grp:alt_shift_toggle,caps:escape";
+      };
       displayManager = {
         defaultSession = "none+awesome";
       };

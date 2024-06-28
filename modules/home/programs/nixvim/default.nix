@@ -494,6 +494,9 @@
       undotree.enable = true;
       diffview.enable = true;
 
+      # TMUX
+      tmux-navigator.enable = true;
+
       # Writing
       goyo = {
         enable = true;

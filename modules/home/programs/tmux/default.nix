@@ -22,11 +22,17 @@
       set -g prefix C-space
       bind C-space send-prefix
 
+      # Synchronize panes
+      bind-key g set-window-option synchronize-panes\; display-message "synchronize-panes is now #{?pane_synchronized,on,off}"
+
       # More binds
       bind -n M-H previous-window
       bind -n M-L next-window
       bind '"' split-window -v -c '#{pane_current_path}'
       bind % split-window -h -c '#{pane_current_path}'
+
+      # Colors
+      set -ga terminal-overrides ",$TERM:Tc"
     '';
   };
 }

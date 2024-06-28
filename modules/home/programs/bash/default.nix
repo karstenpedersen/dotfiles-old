@@ -10,19 +10,16 @@
       "ignorespace"
     ];
     shellAliases = {
-      cat = "bat";
-      cd = "z";
+      cat = "bat -p";
       gs = "git status";
+      lg = "lazygit";
       "g." = "cd ~/dotfiles";
       gv = "cd ~/Nextcloud/vault/";
       gcs = "cd ~/Nextcloud/vault/001-education/sdu/bachelor-in-computer-science/4-semester/";
-      lg = "lazygit";
       ll = "exa -alh";
       ls = "exa";
       tree = "exa --tree";
       vi = "nvim";
-      v = "nvim";
-      zat = "zathura";
       zz = "z -";
       gp = "grep";
       fman = "compgen -c | fzf | xargs man";

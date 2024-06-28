@@ -8,7 +8,6 @@
     ./btop
     ./git
     ./lazygit
-    ./zoxide
     ./tmux
     ./starship
     ./direnv
@@ -39,6 +38,7 @@
     trash-cli
 
     tealdeer
+    cheat
 
     # Processors
     jq

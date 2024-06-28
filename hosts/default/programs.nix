@@ -3,6 +3,7 @@
 {
   imports = [
     ../../modules/home/programs/alacritty
+    ../../modules/home/programs/kitty
     ../../modules/home/programs/vscode
     # ../../modules/home/programs/firefox
     ../../modules/home/programs/zathura

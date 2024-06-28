@@ -18,7 +18,8 @@
     EDITOR = "nvim";
     VISUAL = "codium";
     OPENER = "codium";
-    TERM = "alacritty";
+    TERM = "xterm-256color";
+    TERMINAL = "alacritty";
     PAGER = "less";
     BROWSER = "chromium";
   };
