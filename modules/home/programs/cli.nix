@@ -40,6 +40,7 @@
     trash-cli
     gh
     slides
+    pre-commit
 
     tealdeer
     cheat
