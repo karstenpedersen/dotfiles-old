@@ -5,16 +5,17 @@
     ../../modules/home/programs/alacritty
     ../../modules/home/programs/kitty
     ../../modules/home/programs/vscode
-    # ../../modules/home/programs/firefox
     ../../modules/home/programs/zathura
     ../../modules/home/programs/bash
     ../../modules/home/programs/cli.nix
+    ../../modules/home/programs/virtualization.nix
   ];
 
   # Packages
   home.packages = with pkgs; [
     pass
     sops
+    age
     xdragon
     pistol
     pipewire
@@ -41,8 +42,8 @@
     libsForQt5.kdenlive
     libsForQt5.dragon
     keepassxc
-    kapow
     planner
+    dia
 
     logiops
 

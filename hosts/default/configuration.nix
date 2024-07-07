@@ -1,15 +1,28 @@
-{ inputs, lib, config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
+    ../common/core
+    ../common/optional/xserver
+    ../common/optional/virtualization.nix
     ../../modules/nixos/main-user.nix
-    inputs.home-manager.nixosModules.default
     ../../modules/nixos/devices/MXVerticalAdvancedErgonomicMouse
   ];
 
-  # Hyprland
-  # programs.hyprland.enable = true;
+  # System
+  system = {
+    stateVersion = "unstable";
+    # autoUpgrade.enable = true;
+    # autoUpgrade.allowReboot = true;
+  };
+
+  nix = {
+    # From flake-utils-plus
+    generateNixPathFromInputs = true;
+    generateRegistryFromInputs = true;
+    linkInputs = true;
+  };
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -17,44 +30,9 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.hostName = "laptop"; # Define your hostname.
+  networking.hostName = "laptop";
 
-  # i18n
-  time.timeZone = "Europe/Copenhagen";
-  i18n.defaultLocale = "en_DK.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "da_DK.UTF-8";
-    LC_IDENTIFICATION = "da_DK.UTF-8";
-    LC_MEASUREMENT = "da_DK.UTF-8";
-    LC_MONETARY = "da_DK.UTF-8";
-    LC_NAME = "da_DK.UTF-8";
-    LC_NUMERIC = "da_DK.UTF-8";
-    LC_PAPER = "da_DK.UTF-8";
-    LC_TELEPHONE = "da_DK.UTF-8";
-    LC_TIME = "da_DK.UTF-8";
-  };
-
-  # XServer 
   services = {
-    xserver = {
-      enable = true;
-      xkb = {
-        layout = "us,dk";
-        variant = "";
-        options = "grp:alt_shift_toggle,caps:escape";
-      };
-      displayManager = {
-        defaultSession = "none+awesome";
-      };
-      windowManager.awesome = {
-        enable = true;
-        luaModules = with pkgs.luaPackages; [
-          luarocks
-          luadbi-mysql
-        ];
-      };
-      # videoDrivers = [ "nvidia" ];
-    };
     displayManager.sddm.enable = true;
     libinput.touchpad.naturalScrolling = true;
   };
@@ -62,11 +40,11 @@
   # Keys
   services.gnome.gnome-keyring.enable = true;
   services.pcscd.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    pinentryPackage = lib.mkForce pkgs.pinentry-qt;
-  };
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  #   pinentryPackage = lib.mkForce pkgs.pinentry-qt;
+  # };
 
   # User 
   main-user = {
@@ -74,23 +52,14 @@
     username = "karsten";
     groups = [
       "adbusers"
-      "vboxusers"
       "docker"
+      "libvirtd"
+      "kvm"
     ];
   };
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "karsten" = import ./home.nix;
-    };
-    backupFileExtension = "hm-backup";
-  };
-
-  # Android
-  programs.adb.enable = true;
+  home-manager.users.karsten = import ./home.nix;
 
   # Packages
-  nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     chromium
     neovim
@@ -106,11 +75,8 @@
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   xdg.portal.config.common.default = "*";
 
-  # Virtualization
+  # Docker
   virtualisation.docker.enable = true;
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.waydroid.enable = true;
-  users.extraGroups.vboxusers.members = [ "karsten" ];
   users.extraGroups.docker.members = [ "karsten" ];
 
   # Fonts
@@ -146,28 +112,6 @@
   # Bluetooth
   hardware.bluetooth.enable = true;
 
-  # Settings
-  nix = {
-    settings = {
-      experimental-features = [ "nix-command" "flakes" ];
-      auto-optimise-store = true;
-      substituters = ["https://hyprland.cachix.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
-    };
-
-    # From flake-utils-plus
-    generateNixPathFromInputs = true;
-    generateRegistryFromInputs = true;
-    linkInputs = true;
-  };
-
-  # System
-  system = {
-    stateVersion = "unstable";
-    # autoUpgrade.enable = true;
-    # autoUpgrade.allowReboot = true;
-  };
-
   # Session variables
   environment = {
     sessionVariables = {
@@ -200,16 +144,6 @@
     };
   };
 
-  # Eduroam
-  networking.wireless.networks.eduroam = {
-    auth = ''
-      key_mgmt=WPA-EAP
-      eap=PWD
-      identity="kpede22@student.sdu.dk"
-      password="p@$$w0rd"
-    '';
-  };
-
   # Allow man pages
   documentation = {
     enable = true;
@@ -219,7 +153,4 @@
     };
     dev.enable = true;
   };
-
-  # Swaylock
-  security.pam.services.swaylock = { };
 }

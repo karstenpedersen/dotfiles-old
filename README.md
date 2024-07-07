@@ -1,6 +1,6 @@
 # Dotfiles
 
-My personal dotfiles based around NixOS with home-manager using hyprland.
+My personal dotfiles based around NixOS with home-manager.
 
 ## Tooling
 

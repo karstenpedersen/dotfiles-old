@@ -7,17 +7,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nix-colors.url = "github:misterio77/nix-colors";
-    hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-      # submodules = true;
-    };
-    utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-colors.url = "github:misterio77/nix-colors";
+    utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
 
     # Neovim stuff
     nixvim = {
@@ -30,16 +26,15 @@
     };
   };
 
-  outputs = { self, nixpkgs, utils, ... }@inputs:
+  outputs = { nixpkgs, utils, ... }@inputs:
     {
-      nixosModules = import ./modules { lib = nixpkgs.lib; };
       nixosConfigurations = {
         laptop = nixpkgs.lib.nixosSystem {
           modules = [
             ./hosts/default/configuration.nix
             utils.nixosModules.autoGenFromInputs
             inputs.home-manager.nixosModules.default
-            inputs.hyprland.nixosModules.default
+            inputs.sops-nix.nixosModules.sops
           ];
           specialArgs = { inherit inputs; };
         };

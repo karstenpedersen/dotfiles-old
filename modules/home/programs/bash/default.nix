@@ -15,6 +15,7 @@
       lg = "lazygit";
       "g." = "cd ~/dotfiles";
       gv = "cd ~/Nextcloud/vault/";
+      gnb = "cd ~/Nextcloud/nb/";
       gcs = "cd ~/Nextcloud/vault/001-education/sdu/bachelor-in-computer-science/4-semester/";
       ll = "exa -alh";
       ls = "exa";

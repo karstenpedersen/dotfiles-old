@@ -1,4 +1,4 @@
-{ inputs, lib, pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
@@ -6,7 +6,7 @@
     inputs.nixvim.homeManagerModules.nixvim
     ../../modules/home/desktops/awesome
     ./programs.nix
-    # ./services.nix
+    ./services.nix
   ];
 
   # Home
@@ -26,11 +26,10 @@
 
   # Theme
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
-  # colorScheme = inputs.nix-colors.colorSchemes.grayscale-dark;
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
-    package = pkgs.gnome.adwaita-icon-theme;
+    package = pkgs.adwaita-icon-theme;
     name = "Adwaita";
     size = 16;
   };

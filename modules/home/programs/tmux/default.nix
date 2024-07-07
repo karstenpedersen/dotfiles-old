@@ -30,6 +30,7 @@
       bind -n M-L next-window
       bind '"' split-window -v -c '#{pane_current_path}'
       bind % split-window -h -c '#{pane_current_path}'
+      bind c new-window -c '#{pane_current_path}'
 
       # Colors
       set -ga terminal-overrides ",$TERM:Tc"

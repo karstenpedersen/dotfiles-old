@@ -14,9 +14,11 @@
     ./nixvim
     # ./nix-index
     ./cheat
+    ./nb
   ];
 
   home.packages = with pkgs; [
+    cz-cli
     micro
     man-pages
     eza
@@ -36,9 +38,15 @@
     sd
     gnupg
     trash-cli
+    gh
+    slides
 
     tealdeer
     cheat
+
+    # Containers
+    podman
+    podman-tui
 
     # Processors
     jq
