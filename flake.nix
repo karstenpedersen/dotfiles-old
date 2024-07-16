@@ -11,9 +11,9 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
     nix-colors.url = "github:misterio77/nix-colors";
-    utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
 
     # Neovim stuff
     nixvim = {
@@ -37,6 +37,13 @@
             inputs.sops-nix.nixosModules.sops
           ];
           specialArgs = { inherit inputs; };
+        };
+        wsl = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/wsl/configuration.nix
+            inputs.nixos-wsl.nixosModules.default
+          ];
         };
       };
     };

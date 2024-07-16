@@ -42,11 +42,12 @@
           astro.enable = true;
           tailwindcss.enable = true;
           texlab.enable = true;
-          # rnix-lsp.enable = true;
-          nixd.enable = true;
+          rnix-lsp.enable = true;
           hls.enable = true;
           lua-ls.enable = true;
           marksman.enable = true;
+          gleam.enable = true;
+          dockerls.enable = true;
         };
       };
       cmp = {
@@ -63,13 +64,13 @@
           mapping = {
             __raw = ''
               cmp.mapping.preset.insert({
-                ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-                ['<C-f>'] = cmp.mapping.scroll_docs(4),
-                ['<C-Space>'] = cmp.mapping.complete(),
-                ['<C-e>'] = cmp.mapping.abort(),
-                ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), {'i', 'c'}),
-                ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), {'i', 'c'}), 
-                ["<C-y>"] = cmp.mapping(cmp.mapping.confirm({ select = true }, {'i', 'c'}))
+                ['<c-b>'] = cmp.mapping.scroll_docs(-4),
+                ['<c-f>'] = cmp.mapping.scroll_docs(4),
+                ['<c-space>'] = cmp.mapping.complete(),
+                ['<c-e>'] = cmp.mapping.abort(),
+                ['<c-n>'] = cmp.mapping(cmp.mapping.select_next_item(), {'i', 'c'}),
+                ['<c-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), {'i', 'c'}), 
+                ["<c-y>"] = cmp.mapping(cmp.mapping.confirm({ select = true }, {'i', 'c'}))
               })
             '';
           };

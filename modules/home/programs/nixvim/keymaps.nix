@@ -98,6 +98,18 @@ in
       action = "<cmd>Telescope live_grep<cr>";
       options.desc = "Live grep";
     }
+    {
+      key = "<c-t>";
+      action = helpers.mkRaw ''
+        function()
+          require('telescope.builtin').live_grep({
+            default_text="TODO",
+            initial_mode="normal"
+          })
+        end
+      '';
+      options.desc = "Live grep todos";
+    }
 
     # Refactoring
     {

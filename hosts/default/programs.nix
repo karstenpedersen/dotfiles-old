@@ -9,9 +9,11 @@
     ../../modules/home/programs/bash
     ../../modules/home/programs/cli.nix
     ../../modules/home/programs/virtualization.nix
+    ../../modules/home/programs/firefox
   ];
 
   # Packages
+  nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     pass
     sops
@@ -54,7 +56,12 @@
     # Gamedev
     godot_4
     # aseprite
-  ];
 
-  nixpkgs.config.allowUnfree = true;
+    # Monitors
+    autorandr
+    arandr
+
+    # Keyboard
+    via
+  ];
 }

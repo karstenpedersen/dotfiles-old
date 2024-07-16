@@ -6,22 +6,16 @@
     ../common/core
     ../common/optional/xserver
     ../common/optional/virtualization.nix
+    ../common/optional/documentation.nix
     ../../modules/nixos/main-user.nix
     ../../modules/nixos/devices/MXVerticalAdvancedErgonomicMouse
   ];
 
   # System
   system = {
-    stateVersion = "unstable";
+    stateVersion = "24.05";
     # autoUpgrade.enable = true;
     # autoUpgrade.allowReboot = true;
-  };
-
-  nix = {
-    # From flake-utils-plus
-    generateNixPathFromInputs = true;
-    generateRegistryFromInputs = true;
-    linkInputs = true;
   };
 
   # Bootloader
@@ -35,16 +29,14 @@
   services = {
     displayManager.sddm.enable = true;
     libinput.touchpad.naturalScrolling = true;
+    udev.extraRules = ''
+      KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
+    '';
   };
 
   # Keys
   services.gnome.gnome-keyring.enable = true;
   services.pcscd.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  #   pinentryPackage = lib.mkForce pkgs.pinentry-qt;
-  # };
 
   # User 
   main-user = {
@@ -142,15 +134,5 @@
       package = config.boot.kernelPackages.nvidiaPackages.stable;
       # nvidiaSettings = true;
     };
-  };
-
-  # Allow man pages
-  documentation = {
-    enable = true;
-    man = {
-      man-db.enable = false;
-      mandoc.enable = true;
-    };
-    dev.enable = true;
   };
 }

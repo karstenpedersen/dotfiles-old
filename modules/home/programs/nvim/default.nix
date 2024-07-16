@@ -155,7 +155,6 @@
         luasnip
         friendly-snippets
         vim-kitty-navigator
-        
         lazygit-nvim
         vim-pandoc
         vim-pandoc-syntax

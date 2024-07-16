@@ -14,6 +14,6 @@
     globals.maplocalleader = " ";
     colorschemes.catppuccin.enable = true;
   };
-  home.file.".config/nvim/ftplugin".source = ./ftplugin;
+  # home.file.".config/nvim/ftplugin".source = ./ftplugin;
 }
 

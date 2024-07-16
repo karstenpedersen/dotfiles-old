@@ -32,10 +32,10 @@
     smartcase = true;
 
     # Split
-    splitbelow = true;
     splitright = true;
+    splitbelow = true;
 
-    clipboard = "unnamedplus";
+    clipboard.register = "unnamedplus";
 
     # Menus
     pumheight = 16;
