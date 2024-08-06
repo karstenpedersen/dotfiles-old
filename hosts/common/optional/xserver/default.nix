@@ -8,9 +8,9 @@
     xserver = {
       enable = true;
       xkb = {
-        layout = "us,dk";
+        layout = "us";
         variant = "";
-        options = "grp:alt_shift_toggle,caps:escape";
+        options = "caps:escape";
       };
       windowManager.awesome = {
         enable = true;

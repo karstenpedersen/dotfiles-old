@@ -10,6 +10,7 @@
     ../../modules/home/programs/cli.nix
     ../../modules/home/programs/virtualization.nix
     ../../modules/home/programs/firefox
+    ../../modules/home/emacs
   ];
 
   # Packages
@@ -63,5 +64,9 @@
 
     # Keyboard
     via
+
+    # Tectonic
+    tectonic
+    biber-for-tectonic
   ];
 }

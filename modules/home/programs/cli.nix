@@ -12,6 +12,7 @@
     ./starship
     ./direnv
     ./nixvim
+    # ./nvim
     ./nix-index
     ./cheat
     ./nb

@@ -1,7 +1,6 @@
 { lib, inputs, ... }:
 
 {
-  home.sessionVariables.BROWSER = lib.mkDefault "firefox";
   programs.firefox = {
     enable = true;
     profiles.karsten = {

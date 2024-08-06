@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 host="$1"
+host_file="$2"
 
 if [ ! -z "$WSL_DISTRO_NAME" ] && [[ "$WSL_DISTRO_NAME" != "nixos" ]]; then
   echo "WSL_DISTRO_NAME is defined, but is not nixos"
@@ -9,11 +10,9 @@ fi
 
 if [ -z "$host" ]; then
   echo "Creating 'host' file"
-  mkdir -p "../ignored"
-  echo "lol" > "../ignored/host"
+  echo "$host" > $host_file
 else
-  echo lol
-  host=$(head -n 1 "../ignored/host")
+  host=$(head -n 1 $host_file)
   echo "Found current file $host"
 fi
 

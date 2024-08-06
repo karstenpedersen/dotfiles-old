@@ -1,0 +1,11 @@
+keys:
+  - &users:
+    - &default age1pfu2jwn4s3kg9jd2qlrrht0d0ewkwnayc2xcavqxemcydn0zfqpqdw42qd
+  - &hosts:
+    - &default2 age1kfewxvy3zcj5y9uesvyhet6nskw2ec6s43wzp5uk02nalf6g4ghqf8f77s
+creation_rules:
+  - path_regex: secrets.yaml$
+    key_groups:
+    - age:
+      - *default
+      - *default2

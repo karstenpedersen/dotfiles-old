@@ -9,6 +9,7 @@
     ../common/optional/documentation.nix
     ../../modules/nixos/main-user.nix
     ../../modules/nixos/devices/MXVerticalAdvancedErgonomicMouse
+    ../../modules/nixos/services/autorandr
   ];
 
   # System
